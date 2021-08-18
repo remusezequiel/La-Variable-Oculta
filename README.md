@@ -2,7 +2,7 @@
 
 Acá voy a ir subiendo todo lo referido a la materia. Tanto cosas que ponen los profes como cosas que voy a ir haciendo yo.
 
-Esto esta alojado en: [https://remusezequiel.github.io/Labo-de-Datos//index.html](https://remusezequiel.github.io/Labo-de-Datos//index.html)
+Esto esta alojado en: [https://remusezequiel.github.io/Labo-de-Datos/index.html](https://remusezequiel.github.io/Labo-de-Datos/index.html)
 
 ## Cursada
 
