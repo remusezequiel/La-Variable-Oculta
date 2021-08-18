@@ -155,4 +155,16 @@ n_muestras <- 100
 res <- experimento_letras(n_muestras)
 print(res)
 ```
+## Usando un paquete
+
+En este ejercicio vamos a usar el paquete `MASS`. Se instala de la siguiente forma:
+```
+install.packages('MASS')
+```
+Para usar este paquete, solo debemos llamarlo de la siguiente forma:
+```{r}
+library('MASS')
+
+```
+
 
