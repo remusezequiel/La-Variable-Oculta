@@ -60,13 +60,13 @@ Construir una función que retorne la suma de los primeros $N$ elementos.
 ## Escribiendo Letras
 
 Usando la función `sample` pueden elegirse elementos al azar dentro de 
-un vector:
+un vector.
 
-Imaginemos un teclado en el que se apretan letras al azar hasta que sale una letra $a$. ¿Cuantas letras se escribiran en general?. Para responder esto 
- 1) Construir una función que elija una letra al azar del abecedario
- 2) Construya una función que agregue letras a una palabra hasta que salga la primer letra $a$
- 3) Construya una función que se ocupe de generar _N_ palabras y calcule la longitud promedio que tienen. _La función `nchar` cuenta la cantidad de caracteres en un string._ ¿Ve alguna relación entre el número de letras disponibles y la longitud de la palabra?
- 4) Basandose en la función anterior, construya otra función que le permita calcular el número promedio de letras _d_ en las palabras generadas al azar.
+Imaginemos un teclado en el que se apretan letras al azar hasta que sale una letra $a$. ¿Cuantas letras se escribiran en general?. Para responder esto: 
+ 1. Construir una función que elija una letra al azar del abecedario
+ 2. Construya una función que agregue letras a una palabra hasta que salga la primer letra $a$
+ 3. Construya una función que se ocupe de generar _N_ palabras y calcule la longitud promedio que tienen. _La función `nchar` cuenta la cantidad de caracteres en un string._ ¿Ve alguna relación entre el número de letras disponibles y la longitud de la palabra?
+ 4. Basandose en la función anterior, construya otra función que le permita calcular el número promedio de letras _d_ en las palabras generadas al azar.
 
 * Solucion:
 
