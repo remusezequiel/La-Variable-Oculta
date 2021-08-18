@@ -71,12 +71,50 @@ Imaginemos un teclado en el que se apretan letras al azar hasta que sale una let
 * Solucion:
 
 ```{r}
+  # (1)
   elige_letra = function(){
-  letra = sample(letters[1:26],size=1)
-  return(letra)
+    letra = sample(letters[1:26],size=1)
+    return(letra)
   }
   
   letra_al_azar <- elige_letra()
   print(letra_al_azar)
+```
+
+```{r}
+  # (2)
+  construye_palabra = function(letra_stop='a'){
+    letra = elige_letra()
+    palabra = letra
+    
+    while(letra != letra_stop) {
+      letra = elige_letra()
+      palabra = paste(palabra, letra,sep='')
+    }
+  return(palabra)
+  }
+  
+  palabra <- construye_palabra()
+  print(palabra)
+```
+```{r}
+experimento_palabras = function(N , letra_stop='a'){
+  
+  longitud <- 0
+  
+  for(i in 1:N){
+    palabra <- construye_palabra() 
+    longitud = longitud + nchar(palabra)
+  }
+  
+  longitud_promedio = longitud/N
+  
+  return(longitud_promedio)
+}
+
+numero_iteraciones <- 100
+lp <- experimento_palabras(numero_iteraciones)
+
+print(lp)
 ```
 
