@@ -1,8 +1,0 @@
----
-title: "Ejercicios"
-output: html_notebook
----
-
-Acá voy a ir subiendo los ejercicios
-
-
