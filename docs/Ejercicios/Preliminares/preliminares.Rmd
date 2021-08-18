@@ -1,0 +1,41 @@
+---
+title: " Precalentamiento"
+author: "Ezequiel Remus"
+date: "18 de Septiembre 2021"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: lumen
+    toc: yes
+    toc_float: yes
+subtitle: "Ejercicios del Laboratorio de Datos"
+---
+---
+
+## Raices de un polinomio de grado 2
+
+Queremos encontrar las raices de un polinomio de la forma $y(x) = a + b x + c x^2$
+ Y sabemos que esto se hace mediante la formula:
+ $$
+  x_{1,2} = \cfrac{-b \pm \sqrt{b^2 - 4 a c}}{2 a}
+ $$
+ 
+ - Solucion: 
+ 
+```{r}
+  calcula_raices <- function(a,b,c) {
+    
+    discriminante <- sqrt((b^2) - (4 * a * c))
+    x_1 <- (-b + discriminante) / (2 * a)
+    x_2 <- (-b - discriminante) / (2 * a)
+  return(c(x_1, x_2))
+  }
+
+  a = -1
+  b = 0
+  c = 1
+  resultado = calcula_raices(a,b,c)
+  print(resultado)
+```
