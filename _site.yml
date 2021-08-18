@@ -9,3 +9,5 @@ navbar:
     - text: "Apuntes"
       href: apuntes.html
 output_dir: "docs"
+
+

@@ -1,5 +1,5 @@
 ---
-title: "MyLabJournal"
+title: "Laboratorio de Datos"
 output: html_document
 ---
 
@@ -14,30 +14,31 @@ output: html_document
 
 </style>
 
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">
+<!-- <div class="row" style="padding-top: 30px;"> -->
+<!-- <div class="col-sm-6"> -->
+Acá voy a ir subiendo todo lo referido a la materia. Tanto  que ponen los profes como cosas que voy a ir haciendo yo.
 
-# **My Lab Journal**
+[Licenciatura en Ciencia de Datos](https://https://lcd.exactas.uba.ar/) de la 
+[Facultad de Ciencias Exactas y Naturales](https://https://lcd.exactas.uba.ar/) 
 
-This is a template example for lab journaling. Students in Matt Crump's Human Cognition and Performance Lab will use this template to learn R, and other things. Students can replace this text with more fun things. People not in my lab can use this too.
-
-## How to use
-
-1. fork the repo for this website and follow instructions on read me to get set up. [https://github.com/CrumpLab/LabJournalWebsite](https://github.com/CrumpLab/LabJournalWebsite)
-
-2. Blog/journal what you are doing in R, by editing the Journal.Rmd. See the [Journal page](https://crumplab.github.io/LabJournalWebsite/Journal.html) for an example of what to do to get started learning R.
-
-3. See the [links page](https://crumplab.github.io/LabJournalWebsite/Links.html) for lots of helpful links on learning R.
-
-4. Change everything to make it your own.
+### Se dicto  
+ El 2do. cuatrimestre de 2021.
 
 
-</div>
-<div class="col-sm-6">
+## Cursada
 
-### [Crump Lab: Human Cognition and Performance](https://crumplab.github.io)
+Estamos cursando los martes y jueves de 09:00 a 12:00
 
-<a href = "https://crumplab.github.io">
-![](images/logo.png)
-</a>
-</div>
+## Profes
+
+- Andrés Farall 
+- Guillermo Solovey
+- Martín Elías Costa
+- Ariel Salgado
+- Matías Iglesias
+
+## Como aprobar:
+
+va a haber dos tps y un final, que por suerte va a ser multiple choise
+
+
