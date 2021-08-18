@@ -360,32 +360,32 @@ div.tocify {
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAjICgxKVxuICBlbGlnZV9sZXRyYSA9IGZ1bmN0aW9uKCl7XG4gICAgbGV0cmEgPSBzYW1wbGUobGV0dGVyc1sxOjI2XSxzaXplPTEpXG4gICAgcmV0dXJuKGxldHJhKVxuICB9XG4gIFxuICBsZXRyYV9hbF9hemFyIDwtIGVsaWdlX2xldHJhKClcbiAgcHJpbnQobGV0cmFfYWxfYXphcilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAjICgxKVxuICBlbGlnZV9sZXRyYSA8LSBmdW5jdGlvbigpe1xuICAgIGxldHJhIDwtIHNhbXBsZShsZXR0ZXJzWzE6MjZdLCBzaXplPTEpXG4gICAgcmV0dXJuKGxldHJhKVxuICB9XG4gIFxuICBsZXRyYV9hbF9hemFyIDwtIGVsaWdlX2xldHJhKClcbiAgcHJpbnQobGV0cmFfYWxfYXphcilcbmBgYCJ9 -->
 <pre class="r"><code>  # (1)
-  elige_letra = function(){
-    letra = sample(letters[1:26],size=1)
+  elige_letra &lt;- function(){
+    letra &lt;- sample(letters[1:26], size=1)
     return(letra)
   }
   
   letra_al_azar &lt;- elige_letra()
   print(letra_al_azar)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwieVwiXG4ifQ== -->
-<pre><code>[1] &quot;y&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaVwiXG4ifQ== -->
+<pre><code>[1] &quot;i&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAjICgyKVxuICBjb25zdHJ1eWVfcGFsYWJyYSA9IGZ1bmN0aW9uKGxldHJhX3N0b3A9J2EnKXtcbiAgICBsZXRyYSA9IGVsaWdlX2xldHJhKClcbiAgICBwYWxhYnJhID0gbGV0cmFcbiAgICBcbiAgICB3aGlsZShsZXRyYSAhPSBsZXRyYV9zdG9wKSB7XG4gICAgICBsZXRyYSA9IGVsaWdlX2xldHJhKClcbiAgICAgIHBhbGFicmEgPSBwYXN0ZShwYWxhYnJhLCBsZXRyYSxzZXA9JycpXG4gICAgfVxuICByZXR1cm4ocGFsYWJyYSlcbiAgfVxuICBcbiAgcGFsYWJyYSA8LSBjb25zdHJ1eWVfcGFsYWJyYSgpXG4gIHByaW50KHBhbGFicmEpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAjICgyKVxuICBjb25zdHJ1eWVfcGFsYWJyYSA8LSBmdW5jdGlvbihsZXRyYV9zdG9wID0gJ2EnKXtcbiAgICBsZXRyYSA8LSBlbGlnZV9sZXRyYSgpXG4gICAgcGFsYWJyYSA8LSBsZXRyYVxuICAgIFxuICAgIHdoaWxlKGxldHJhICE9IGxldHJhX3N0b3ApIHtcbiAgICAgIGxldHJhIDwtIGVsaWdlX2xldHJhKClcbiAgICAgIHBhbGFicmEgPC0gcGFzdGUocGFsYWJyYSwgbGV0cmEsc2VwPScnKVxuICAgIH1cbiAgcmV0dXJuKHBhbGFicmEpXG4gIH1cbiAgXG4gIHBhbGFicmEgPC0gY29uc3RydXllX3BhbGFicmEoKVxuICBwcmludChwYWxhYnJhKVxuYGBgIn0= -->
 <pre class="r"><code>  # (2)
-  construye_palabra = function(letra_stop=&#39;a&#39;){
-    letra = elige_letra()
-    palabra = letra
+  construye_palabra &lt;- function(letra_stop = &#39;a&#39;){
+    letra &lt;- elige_letra()
+    palabra &lt;- letra
     
     while(letra != letra_stop) {
-      letra = elige_letra()
-      palabra = paste(palabra, letra,sep=&#39;&#39;)
+      letra &lt;- elige_letra()
+      palabra &lt;- paste(palabra, letra,sep=&#39;&#39;)
     }
   return(palabra)
   }
@@ -393,22 +393,23 @@ div.tocify {
   palabra &lt;- construye_palabra()
   print(palabra)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaWx6aWlua3V5YVwiXG4ifQ== -->
-<pre><code>[1] &quot;ilziinkuya&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiZGpsdmxna2NidXBpdW52bmJ4c2lxeG1hXCJcbiJ9 -->
+<pre><code>[1] &quot;djlvlgkcbupiunvnbxsiqxma&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwZXJpbWVudG9fcGFsYWJyYXMgPSBmdW5jdGlvbihOICwgbGV0cmFfc3RvcD0nYScpe1xuICBcbiAgbG9uZ2l0dWQgPC0gMFxuICBcbiAgZm9yKGkgaW4gMTpOKXtcbiAgICBwYWxhYnJhIDwtIGNvbnN0cnV5ZV9wYWxhYnJhKCkgXG4gICAgbG9uZ2l0dWQgPSBsb25naXR1ZCArIG5jaGFyKHBhbGFicmEpXG4gIH1cbiAgXG4gIGxvbmdpdHVkX3Byb21lZGlvID0gbG9uZ2l0dWQvTlxuICBcbiAgcmV0dXJuKGxvbmdpdHVkX3Byb21lZGlvKVxufVxuXG5udW1lcm9faXRlcmFjaW9uZXMgPC0gMTAwXG5scCA8LSBleHBlcmltZW50b19wYWxhYnJhcyhudW1lcm9faXRlcmFjaW9uZXMpXG5cbnByaW50KGxwKVxuYGBgIn0= -->
-<pre class="r"><code>experimento_palabras = function(N , letra_stop=&#39;a&#39;){
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAoMylcbmV4cGVyaW1lbnRvX3BhbGFicmFzID0gZnVuY3Rpb24oTiAsIGxldHJhX3N0b3AgPSAnYScpe1xuICBcbiAgbG9uZ2l0dWQgPC0gMFxuICBcbiAgZm9yKGkgaW4gMTpOKXtcbiAgICBwYWxhYnJhIDwtIGNvbnN0cnV5ZV9wYWxhYnJhKCkgXG4gICAgbG9uZ2l0dWQgPC0gbG9uZ2l0dWQgKyBuY2hhcihwYWxhYnJhKVxuICB9XG4gIFxuICBsb25naXR1ZF9wcm9tZWRpbyA8LSBsb25naXR1ZC9OXG4gIFxuICByZXR1cm4obG9uZ2l0dWRfcHJvbWVkaW8pXG59XG5cbm51bWVyb19pdGVyYWNpb25lcyA8LSAxMDBcbmxwIDwtIGV4cGVyaW1lbnRvX3BhbGFicmFzKG51bWVyb19pdGVyYWNpb25lcylcblxucHJpbnQobHApXG5gYGAifQ== -->
+<pre class="r"><code># (3)
+experimento_palabras = function(N , letra_stop = &#39;a&#39;){
   
   longitud &lt;- 0
   
   for(i in 1:N){
     palabra &lt;- construye_palabra() 
-    longitud = longitud + nchar(palabra)
+    longitud &lt;- longitud + nchar(palabra)
   }
   
-  longitud_promedio = longitud/N
+  longitud_promedio &lt;- longitud/N
   
   return(longitud_promedio)
 }
@@ -418,15 +419,60 @@ lp &lt;- experimento_palabras(numero_iteraciones)
 
 print(lp)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI3LjExXG4ifQ== -->
-<pre><code>[1] 27.11</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI2LjA1XG4ifQ== -->
+<pre><code>[1] 26.05</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAoNClcbmN1YW50YXNfbGV0cmFzIDwtIGZ1bmN0aW9uKHBhbGFicmEsIGxldHJhX2NvbnRhciA9ICdkJyl7XG4gIFxuICBwYWxhYnJhX3NwbGl0IDwtIHN0cnNwbGl0KHBhbGFicmEsJycpW1sxXV0gIyBFc3RvIGRhIHVuIHZlY3RvciBjb24gbGFzIGxldHJhcyB0b2RhcyBzZXBhcmFkYXNcbiAgY29udGVvIDwtIHN1bShwYWxhYnJhX3NwbGl0PT0nZCcpICMgVW5hIGZvcm1hIGRlIHBlbnNhcmxvXG4gIFxuICByZXR1cm4oY29udGVvKVxufVxuXG5cbmNhbnRpZGFkX2QgPC0gY3VhbnRhc19sZXRyYXMoJ2RvZGlkYWRvJylcbnByaW50KGNhbnRpZGFkX2QpXG5gYGAifQ== -->
+<pre class="r"><code># (4)
+cuantas_letras &lt;- function(palabra, letra_contar = &#39;d&#39;){
+  
+  palabra_split &lt;- strsplit(palabra,&#39;&#39;)[[1]] # Esto da un vector con las letras todas separadas
+  conteo &lt;- sum(palabra_split==&#39;d&#39;) # Una forma de pensarlo
+  
+  return(conteo)
+}
+
+
+cantidad_d &lt;- cuantas_letras(&#39;dodidado&#39;)
+print(cantidad_d)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDRcbiJ9 -->
+<pre><code>[1] 4</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwZXJpbWVudG9fbGV0cmFzIDwtIGZ1bmN0aW9uKE4sIGxldHJhX3N0b3A9J2EnLGxldHJhX2NvbnRhciA9ICdkJyl7XG4gIFxuICBsZXRyYXMgPC0gMFxuICBcbiAgZm9yKGkgaW4gMTpOKXtcbiAgICAjIENvbnN0cnV5byBsYSBwYWxhYnJhXG4gICAgcGFsYWJyYSA8LSBjb25zdHJ1eWVfcGFsYWJyYSgpXG4gICAgIyBDdWVudG8gbGEgY2FudGlkYWQgZGUgJ2QnIHF1ZSBoYXkgZW4gbGEgcGFsYWJyYVxuICAgIFxuICAgIGxldHJhcyA8LSBsZXRyYXMgKyBjdWFudGFzX2xldHJhcyhwYWxhYnJhKVxuICB9XG4gIFxuICAjIENhbGN1bG8gZWwgcHJvbWVkaW8gZGUgbGV0cmFzIGQgZW4gdW5hIG11ZXN0cmEgZGUgTiBwYWxhYnJhc1xuICBsZXRyYXNfcHJvbWVkaW8gPC0gbGV0cmFzL05cbiAgXG4gIHJldHVybihsZXRyYXNfcHJvbWVkaW8pXG59XG5cbm5fbXVlc3RyYXMgPC0gMTAwXG5yZXMgPC0gZXhwZXJpbWVudG9fbGV0cmFzKG5fbXVlc3RyYXMpXG5wcmludChyZXMpXG5gYGAifQ== -->
+<pre class="r"><code>experimento_letras &lt;- function(N, letra_stop=&#39;a&#39;,letra_contar = &#39;d&#39;){
+  
+  letras &lt;- 0
+  
+  for(i in 1:N){
+    # Construyo la palabra
+    palabra &lt;- construye_palabra()
+    # Cuento la cantidad de &#39;d&#39; que hay en la palabra
+    
+    letras &lt;- letras + cuantas_letras(palabra)
+  }
+  
+  # Calculo el promedio de letras d en una muestra de N palabras
+  letras_promedio &lt;- letras/N
+  
+  return(letras_promedio)
+}
+
+n_muestras &lt;- 100
+res &lt;- experimento_letras(n_muestras)
+print(res)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuODhcbiJ9 -->
+<pre><code>[1] 0.88</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIiBQcmVjYWxlbnRhbWllbnRvIg0KYXV0aG9yOiAiRXplcXVpZWwgUmVtdXMiDQpkYXRlOiAiMTggZGUgU2VwdGllbWJyZSAyMDIxIg0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIGRmX3ByaW50OiBwYWdlZA0KICAgIHRvYzogeWVzDQogIGh0bWxfbm90ZWJvb2s6DQogICAgdGhlbWU6IGx1bWVuDQogICAgdG9jOiB5ZXMNCiAgICB0b2NfZmxvYXQ6IHllcw0Kc3VidGl0bGU6ICJFamVyY2ljaW9zIGRlbCBMYWJvcmF0b3JpbyBkZSBEYXRvcyINCi0tLQ0KLS0tDQoNCiMjIFJhaWNlcyBkZSB1biBwb2xpbm9taW8gZGUgZ3JhZG8gMg0KDQpRdWVyZW1vcyBlbmNvbnRyYXIgbGFzIHJhaWNlcyBkZSB1biBwb2xpbm9taW8gZGUgbGEgZm9ybWEgJHkoeCkgPSBhICsgYiB4ICsgYyB4XjIkDQogWSBzYWJlbW9zIHF1ZSBlc3RvIHNlIGhhY2UgbWVkaWFudGUgbGEgZm9ybXVsYToNCiAkJA0KICB4X3sxLDJ9ID0gXGNmcmFjey1iIFxwbSBcc3FydHtiXjIgLSA0IGEgY319ezIgYX0NCiAkJA0KIA0KIC0gU29sdWNpb246IA0KIA0KYGBge3J9DQogIGNhbGN1bGFfcmFpY2VzIDwtIGZ1bmN0aW9uKGEsYixjKSB7DQogICAgDQogICAgZGlzY3JpbWluYW50ZSA8LSBzcXJ0KChiXjIpIC0gKDQgKiBhICogYykpDQogICAgeF8xIDwtICgtYiArIGRpc2NyaW1pbmFudGUpIC8gKDIgKiBhKQ0KICAgIHhfMiA8LSAoLWIgLSBkaXNjcmltaW5hbnRlKSAvICgyICogYSkNCiAgcmV0dXJuKGMoeF8xLCB4XzIpKQ0KICB9DQoNCiAgYSA9IC0xDQogIGIgPSAwDQogIGMgPSAxDQogIHJlc3VsdGFkbyA9IGNhbGN1bGFfcmFpY2VzKGEsYixjKQ0KICBwcmludChyZXN1bHRhZG8pDQpgYGANCg0KIyMgU3VtYSBkZSBudW1lcm9zIEVudGVyb3MNCg0KQ29uc3RydWlyIHVuYSBmdW5jacOzbiBxdWUgcmV0b3JuZSBsYSBzdW1hIGRlIGxvcyBwcmltZXJvcyAkTiQgZWxlbWVudG9zLg0KDQogKiBTb2x1Y2lvbjogDQogDQpgYGB7cn0NCiAgc3VtYV9lbnRlcm9zIDwtIGZ1bmN0aW9uKE4pIHsNCiAgICBFbnRlcm9zIDwtIDE6Tg0KICAgIHJldHVybihzdW0oRW50ZXJvcykpDQogIH0gIA0KICANCiAgbiA9IDUNCiAgcmVzID0gc3VtYV9lbnRlcm9zKG4pDQogIHByaW50KHJlcykNCmBgYA0KIA0KIyMgRXNjcmliaWVuZG8gTGV0cmFzDQoNClVzYW5kbyBsYSBmdW5jacOzbiBgc2FtcGxlYCBwdWVkZW4gZWxlZ2lyc2UgZWxlbWVudG9zIGFsIGF6YXIgZGVudHJvIGRlIA0KdW4gdmVjdG9yOg0KDQpJbWFnaW5lbW9zIHVuIHRlY2xhZG8gZW4gZWwgcXVlIHNlIGFwcmV0YW4gbGV0cmFzIGFsIGF6YXIgaGFzdGEgcXVlIHNhbGUgdW5hIGxldHJhICRhJC4gwr9DdWFudGFzIGxldHJhcyBzZSBlc2NyaWJpcmFuIGVuIGdlbmVyYWw/LiBQYXJhIHJlc3BvbmRlciBlc3RvIA0KIDEpIENvbnN0cnVpciB1bmEgZnVuY2nDs24gcXVlIGVsaWphIHVuYSBsZXRyYSBhbCBhemFyIGRlbCBhYmVjZWRhcmlvDQogMikgQ29uc3RydXlhIHVuYSBmdW5jacOzbiBxdWUgYWdyZWd1ZSBsZXRyYXMgYSB1bmEgcGFsYWJyYSBoYXN0YSBxdWUgc2FsZ2EgbGEgcHJpbWVyIGxldHJhICRhJA0KIDMpIENvbnN0cnV5YSB1bmEgZnVuY2nDs24gcXVlIHNlIG9jdXBlIGRlIGdlbmVyYXIgX05fIHBhbGFicmFzIHkgY2FsY3VsZSBsYSBsb25naXR1ZCBwcm9tZWRpbyBxdWUgdGllbmVuLiBfTGEgZnVuY2nDs24gYG5jaGFyYCBjdWVudGEgbGEgY2FudGlkYWQgZGUgY2FyYWN0ZXJlcyBlbiB1biBzdHJpbmcuXyDCv1ZlIGFsZ3VuYSByZWxhY2nDs24gZW50cmUgZWwgbsO6bWVybyBkZSBsZXRyYXMgZGlzcG9uaWJsZXMgeSBsYSBsb25naXR1ZCBkZSBsYSBwYWxhYnJhPw0KIDQpIEJhc2FuZG9zZSBlbiBsYSBmdW5jacOzbiBhbnRlcmlvciwgY29uc3RydXlhIG90cmEgZnVuY2nDs24gcXVlIGxlIHBlcm1pdGEgY2FsY3VsYXIgZWwgbsO6bWVybyBwcm9tZWRpbyBkZSBsZXRyYXMgX2RfIGVuIGxhcyBwYWxhYnJhcyBnZW5lcmFkYXMgYWwgYXphci4NCg0KKiBTb2x1Y2lvbjoNCg0KYGBge3J9DQogICMgKDEpDQogIGVsaWdlX2xldHJhID0gZnVuY3Rpb24oKXsNCiAgICBsZXRyYSA9IHNhbXBsZShsZXR0ZXJzWzE6MjZdLHNpemU9MSkNCiAgICByZXR1cm4obGV0cmEpDQogIH0NCiAgDQogIGxldHJhX2FsX2F6YXIgPC0gZWxpZ2VfbGV0cmEoKQ0KICBwcmludChsZXRyYV9hbF9hemFyKQ0KYGBgDQoNCmBgYHtyfQ0KICAjICgyKQ0KICBjb25zdHJ1eWVfcGFsYWJyYSA9IGZ1bmN0aW9uKGxldHJhX3N0b3A9J2EnKXsNCiAgICBsZXRyYSA9IGVsaWdlX2xldHJhKCkNCiAgICBwYWxhYnJhID0gbGV0cmENCiAgICANCiAgICB3aGlsZShsZXRyYSAhPSBsZXRyYV9zdG9wKSB7DQogICAgICBsZXRyYSA9IGVsaWdlX2xldHJhKCkNCiAgICAgIHBhbGFicmEgPSBwYXN0ZShwYWxhYnJhLCBsZXRyYSxzZXA9JycpDQogICAgfQ0KICByZXR1cm4ocGFsYWJyYSkNCiAgfQ0KICANCiAgcGFsYWJyYSA8LSBjb25zdHJ1eWVfcGFsYWJyYSgpDQogIHByaW50KHBhbGFicmEpDQpgYGANCmBgYHtyfQ0KZXhwZXJpbWVudG9fcGFsYWJyYXMgPSBmdW5jdGlvbihOICwgbGV0cmFfc3RvcD0nYScpew0KICANCiAgbG9uZ2l0dWQgPC0gMA0KICANCiAgZm9yKGkgaW4gMTpOKXsNCiAgICBwYWxhYnJhIDwtIGNvbnN0cnV5ZV9wYWxhYnJhKCkgDQogICAgbG9uZ2l0dWQgPSBsb25naXR1ZCArIG5jaGFyKHBhbGFicmEpDQogIH0NCiAgDQogIGxvbmdpdHVkX3Byb21lZGlvID0gbG9uZ2l0dWQvTg0KICANCiAgcmV0dXJuKGxvbmdpdHVkX3Byb21lZGlvKQ0KfQ0KDQpudW1lcm9faXRlcmFjaW9uZXMgPC0gMTAwDQpscCA8LSBleHBlcmltZW50b19wYWxhYnJhcyhudW1lcm9faXRlcmFjaW9uZXMpDQoNCnByaW50KGxwKQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIiBQcmVjYWxlbnRhbWllbnRvIg0KYXV0aG9yOiAiRXplcXVpZWwgUmVtdXMiDQpkYXRlOiAiMTggZGUgU2VwdGllbWJyZSAyMDIxIg0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIGRmX3ByaW50OiBwYWdlZA0KICAgIHRvYzogeWVzDQogIGh0bWxfbm90ZWJvb2s6DQogICAgdGhlbWU6IGx1bWVuDQogICAgdG9jOiB5ZXMNCiAgICB0b2NfZmxvYXQ6IHllcw0Kc3VidGl0bGU6ICJFamVyY2ljaW9zIGRlbCBMYWJvcmF0b3JpbyBkZSBEYXRvcyINCi0tLQ0KLS0tDQoNCiMjIFJhaWNlcyBkZSB1biBwb2xpbm9taW8gZGUgZ3JhZG8gMg0KDQpRdWVyZW1vcyBlbmNvbnRyYXIgbGFzIHJhaWNlcyBkZSB1biBwb2xpbm9taW8gZGUgbGEgZm9ybWEgJHkoeCkgPSBhICsgYiB4ICsgYyB4XjIkDQogWSBzYWJlbW9zIHF1ZSBlc3RvIHNlIGhhY2UgbWVkaWFudGUgbGEgZm9ybXVsYToNCiAkJA0KICB4X3sxLDJ9ID0gXGNmcmFjey1iIFxwbSBcc3FydHtiXjIgLSA0IGEgY319ezIgYX0NCiAkJA0KIA0KIC0gU29sdWNpb246IA0KIA0KYGBge3J9DQogIGNhbGN1bGFfcmFpY2VzIDwtIGZ1bmN0aW9uKGEsYixjKSB7DQogICAgDQogICAgZGlzY3JpbWluYW50ZSA8LSBzcXJ0KChiXjIpIC0gKDQgKiBhICogYykpDQogICAgeF8xIDwtICgtYiArIGRpc2NyaW1pbmFudGUpIC8gKDIgKiBhKQ0KICAgIHhfMiA8LSAoLWIgLSBkaXNjcmltaW5hbnRlKSAvICgyICogYSkNCiAgcmV0dXJuKGMoeF8xLCB4XzIpKQ0KICB9DQoNCiAgYSA9IC0xDQogIGIgPSAwDQogIGMgPSAxDQogIHJlc3VsdGFkbyA9IGNhbGN1bGFfcmFpY2VzKGEsYixjKQ0KICBwcmludChyZXN1bHRhZG8pDQpgYGANCg0KIyMgU3VtYSBkZSBudW1lcm9zIEVudGVyb3MNCg0KQ29uc3RydWlyIHVuYSBmdW5jacOzbiBxdWUgcmV0b3JuZSBsYSBzdW1hIGRlIGxvcyBwcmltZXJvcyAkTiQgZWxlbWVudG9zLg0KDQogKiBTb2x1Y2lvbjogDQogDQpgYGB7cn0NCiAgc3VtYV9lbnRlcm9zIDwtIGZ1bmN0aW9uKE4pIHsNCiAgICBFbnRlcm9zIDwtIDE6Tg0KICAgIHJldHVybihzdW0oRW50ZXJvcykpDQogIH0gIA0KICANCiAgbiA9IDUNCiAgcmVzID0gc3VtYV9lbnRlcm9zKG4pDQogIHByaW50KHJlcykNCmBgYA0KIA0KIyMgRXNjcmliaWVuZG8gTGV0cmFzDQoNClVzYW5kbyBsYSBmdW5jacOzbiBgc2FtcGxlYCBwdWVkZW4gZWxlZ2lyc2UgZWxlbWVudG9zIGFsIGF6YXIgZGVudHJvIGRlIA0KdW4gdmVjdG9yOg0KDQpJbWFnaW5lbW9zIHVuIHRlY2xhZG8gZW4gZWwgcXVlIHNlIGFwcmV0YW4gbGV0cmFzIGFsIGF6YXIgaGFzdGEgcXVlIHNhbGUgdW5hIGxldHJhICRhJC4gwr9DdWFudGFzIGxldHJhcyBzZSBlc2NyaWJpcmFuIGVuIGdlbmVyYWw/LiBQYXJhIHJlc3BvbmRlciBlc3RvIA0KIDEpIENvbnN0cnVpciB1bmEgZnVuY2nDs24gcXVlIGVsaWphIHVuYSBsZXRyYSBhbCBhemFyIGRlbCBhYmVjZWRhcmlvDQogMikgQ29uc3RydXlhIHVuYSBmdW5jacOzbiBxdWUgYWdyZWd1ZSBsZXRyYXMgYSB1bmEgcGFsYWJyYSBoYXN0YSBxdWUgc2FsZ2EgbGEgcHJpbWVyIGxldHJhICRhJA0KIDMpIENvbnN0cnV5YSB1bmEgZnVuY2nDs24gcXVlIHNlIG9jdXBlIGRlIGdlbmVyYXIgX05fIHBhbGFicmFzIHkgY2FsY3VsZSBsYSBsb25naXR1ZCBwcm9tZWRpbyBxdWUgdGllbmVuLiBfTGEgZnVuY2nDs24gYG5jaGFyYCBjdWVudGEgbGEgY2FudGlkYWQgZGUgY2FyYWN0ZXJlcyBlbiB1biBzdHJpbmcuXyDCv1ZlIGFsZ3VuYSByZWxhY2nDs24gZW50cmUgZWwgbsO6bWVybyBkZSBsZXRyYXMgZGlzcG9uaWJsZXMgeSBsYSBsb25naXR1ZCBkZSBsYSBwYWxhYnJhPw0KIDQpIEJhc2FuZG9zZSBlbiBsYSBmdW5jacOzbiBhbnRlcmlvciwgY29uc3RydXlhIG90cmEgZnVuY2nDs24gcXVlIGxlIHBlcm1pdGEgY2FsY3VsYXIgZWwgbsO6bWVybyBwcm9tZWRpbyBkZSBsZXRyYXMgX2RfIGVuIGxhcyBwYWxhYnJhcyBnZW5lcmFkYXMgYWwgYXphci4NCg0KKiBTb2x1Y2lvbjoNCg0KYGBge3J9DQogICMgKDEpDQogIGVsaWdlX2xldHJhIDwtIGZ1bmN0aW9uKCl7DQogICAgbGV0cmEgPC0gc2FtcGxlKGxldHRlcnNbMToyNl0sIHNpemU9MSkNCiAgICByZXR1cm4obGV0cmEpDQogIH0NCiAgDQogIGxldHJhX2FsX2F6YXIgPC0gZWxpZ2VfbGV0cmEoKQ0KICBwcmludChsZXRyYV9hbF9hemFyKQ0KYGBgDQoNCmBgYHtyfQ0KICAjICgyKQ0KICBjb25zdHJ1eWVfcGFsYWJyYSA8LSBmdW5jdGlvbihsZXRyYV9zdG9wID0gJ2EnKXsNCiAgICBsZXRyYSA8LSBlbGlnZV9sZXRyYSgpDQogICAgcGFsYWJyYSA8LSBsZXRyYQ0KICAgIA0KICAgIHdoaWxlKGxldHJhICE9IGxldHJhX3N0b3ApIHsNCiAgICAgIGxldHJhIDwtIGVsaWdlX2xldHJhKCkNCiAgICAgIHBhbGFicmEgPC0gcGFzdGUocGFsYWJyYSwgbGV0cmEsc2VwPScnKQ0KICAgIH0NCiAgcmV0dXJuKHBhbGFicmEpDQogIH0NCiAgDQogIHBhbGFicmEgPC0gY29uc3RydXllX3BhbGFicmEoKQ0KICBwcmludChwYWxhYnJhKQ0KYGBgDQpgYGB7cn0NCiMgKDMpDQpleHBlcmltZW50b19wYWxhYnJhcyA9IGZ1bmN0aW9uKE4gLCBsZXRyYV9zdG9wID0gJ2EnKXsNCiAgDQogIGxvbmdpdHVkIDwtIDANCiAgDQogIGZvcihpIGluIDE6Til7DQogICAgcGFsYWJyYSA8LSBjb25zdHJ1eWVfcGFsYWJyYSgpIA0KICAgIGxvbmdpdHVkIDwtIGxvbmdpdHVkICsgbmNoYXIocGFsYWJyYSkNCiAgfQ0KICANCiAgbG9uZ2l0dWRfcHJvbWVkaW8gPC0gbG9uZ2l0dWQvTg0KICANCiAgcmV0dXJuKGxvbmdpdHVkX3Byb21lZGlvKQ0KfQ0KDQpudW1lcm9faXRlcmFjaW9uZXMgPC0gMTAwDQpscCA8LSBleHBlcmltZW50b19wYWxhYnJhcyhudW1lcm9faXRlcmFjaW9uZXMpDQoNCnByaW50KGxwKQ0KYGBgDQpgYGB7cn0NCiMgKDQpDQpjdWFudGFzX2xldHJhcyA8LSBmdW5jdGlvbihwYWxhYnJhLCBsZXRyYV9jb250YXIgPSAnZCcpew0KICANCiAgcGFsYWJyYV9zcGxpdCA8LSBzdHJzcGxpdChwYWxhYnJhLCcnKVtbMV1dICMgRXN0byBkYSB1biB2ZWN0b3IgY29uIGxhcyBsZXRyYXMgdG9kYXMgc2VwYXJhZGFzDQogIGNvbnRlbyA8LSBzdW0ocGFsYWJyYV9zcGxpdD09J2QnKSAjIFVuYSBmb3JtYSBkZSBwZW5zYXJsbw0KICANCiAgcmV0dXJuKGNvbnRlbykNCn0NCg0KDQpjYW50aWRhZF9kIDwtIGN1YW50YXNfbGV0cmFzKCdkb2RpZGFkbycpDQpwcmludChjYW50aWRhZF9kKQ0KDQoNCmV4cGVyaW1lbnRvX2xldHJhcyA8LSBmdW5jdGlvbihOLCBsZXRyYV9zdG9wPSdhJyxsZXRyYV9jb250YXIgPSAnZCcpew0KICANCiAgbGV0cmFzIDwtIDANCiAgDQogIGZvcihpIGluIDE6Til7DQogICAgIyBDb25zdHJ1eW8gbGEgcGFsYWJyYQ0KICAgIHBhbGFicmEgPC0gY29uc3RydXllX3BhbGFicmEoKQ0KICAgICMgQ3VlbnRvIGxhIGNhbnRpZGFkIGRlICdkJyBxdWUgaGF5IGVuIGxhIHBhbGFicmENCiAgICANCiAgICBsZXRyYXMgPC0gbGV0cmFzICsgY3VhbnRhc19sZXRyYXMocGFsYWJyYSkNCiAgfQ0KICANCiAgIyBDYWxjdWxvIGVsIHByb21lZGlvIGRlIGxldHJhcyBkIGVuIHVuYSBtdWVzdHJhIGRlIE4gcGFsYWJyYXMNCiAgbGV0cmFzX3Byb21lZGlvIDwtIGxldHJhcy9ODQogIA0KICByZXR1cm4obGV0cmFzX3Byb21lZGlvKQ0KfQ0KDQpuX211ZXN0cmFzIDwtIDEwMA0KcmVzIDwtIGV4cGVyaW1lbnRvX2xldHJhcyhuX211ZXN0cmFzKQ0KcHJpbnQocmVzKQ0KYGBgDQoNCg==</div>
 
 
 </div>

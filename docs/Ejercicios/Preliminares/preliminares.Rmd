@@ -72,8 +72,8 @@ Imaginemos un teclado en el que se apretan letras al azar hasta que sale una let
 
 ```{r}
   # (1)
-  elige_letra = function(){
-    letra = sample(letters[1:26],size=1)
+  elige_letra <- function(){
+    letra <- sample(letters[1:26], size=1)
     return(letra)
   }
   
@@ -83,13 +83,13 @@ Imaginemos un teclado en el que se apretan letras al azar hasta que sale una let
 
 ```{r}
   # (2)
-  construye_palabra = function(letra_stop='a'){
-    letra = elige_letra()
-    palabra = letra
+  construye_palabra <- function(letra_stop = 'a'){
+    letra <- elige_letra()
+    palabra <- letra
     
     while(letra != letra_stop) {
-      letra = elige_letra()
-      palabra = paste(palabra, letra,sep='')
+      letra <- elige_letra()
+      palabra <- paste(palabra, letra,sep='')
     }
   return(palabra)
   }
@@ -98,16 +98,17 @@ Imaginemos un teclado en el que se apretan letras al azar hasta que sale una let
   print(palabra)
 ```
 ```{r}
-experimento_palabras = function(N , letra_stop='a'){
+# (3)
+experimento_palabras = function(N , letra_stop = 'a'){
   
   longitud <- 0
   
   for(i in 1:N){
     palabra <- construye_palabra() 
-    longitud = longitud + nchar(palabra)
+    longitud <- longitud + nchar(palabra)
   }
   
-  longitud_promedio = longitud/N
+  longitud_promedio <- longitud/N
   
   return(longitud_promedio)
 }
@@ -116,5 +117,42 @@ numero_iteraciones <- 100
 lp <- experimento_palabras(numero_iteraciones)
 
 print(lp)
+```
+```{r}
+# (4)
+cuantas_letras <- function(palabra, letra_contar = 'd'){
+  
+  palabra_split <- strsplit(palabra,'')[[1]] # Esto da un vector con las letras todas separadas
+  conteo <- sum(palabra_split=='d') # Una forma de pensarlo
+  
+  return(conteo)
+}
+
+
+cantidad_d <- cuantas_letras('dodidado')
+print(cantidad_d)
+
+
+experimento_letras <- function(N, letra_stop='a',letra_contar = 'd'){
+  
+  letras <- 0
+  
+  for(i in 1:N){
+    # Construyo la palabra
+    palabra <- construye_palabra()
+    # Cuento la cantidad de 'd' que hay en la palabra
+    
+    letras <- letras + cuantas_letras(palabra)
+  }
+  
+  # Calculo el promedio de letras d en una muestra de N palabras
+  letras_promedio <- letras/N
+  
+  return(letras_promedio)
+}
+
+n_muestras <- 100
+res <- experimento_letras(n_muestras)
+print(res)
 ```
 
