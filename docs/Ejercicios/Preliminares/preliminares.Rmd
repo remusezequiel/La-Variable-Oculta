@@ -204,6 +204,9 @@ print(proyect)
 2. Construya una función que encuentre el número primo $n+1$ a partir de una lista con los primeros $n$ números primos.
 3. Construya una función que encuentre los primeros $n+1$ números primos.
 
+
+
+
 ## Lectura de datos de nombres
 
 1. Entrar en https://datos.gob.ar/dataset/otros-nombres-personas-fisicas y descarguen un dataset de nombres para un año de su elección.
