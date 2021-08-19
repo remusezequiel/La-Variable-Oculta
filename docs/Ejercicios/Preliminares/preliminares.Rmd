@@ -167,4 +167,50 @@ library('MASS')
 
 ```
 
+Ahora, consideremos la matriz $A \in \mathbb{R}^{3 \times 1}$, $A = (-1,3,2)$
 
+Esta, en `R` se define de la siguiente forma:
+```{r}
+A = matrix(c(-1,3,2),nrow=1,byrow=TRUE)
+print(A)
+```
+Construir una función que calcule la proyección de $A$ en un vector $v$, tal que $v$
+este en el núcleo. 
+
+Recordemos que el núcleo, son todos los vectores $v$ que cumplen que $A \cdot v = 0$.
+
+Para esto, debemos usar la función `NULL` que posee el paquete `MASS`.
+
+* Solución $(rever)$
+
+```{r}
+proyeccion <- function(vector,A){
+  
+  nucleo <- Null(A)
+  vector_proyectado <- nucleo %*% vector
+  
+  return(vector_proyectado)
+}
+
+A = matrix(c(-1,3,2),nrow=1,byrow=TRUE)
+v = c(5,1,1)
+proyect <- proyeccion(v,A)
+print(proyect)
+```
+
+## Conteo de números primos
+
+1. Construya una función que detecte si un número entero es divisible o no por un conjunto de otros números. _Tip: la operación_ `%%` _aplica la operación módulo_.
+2. Construya una función que encuentre el número primo $n+1$ a partir de una lista con los primeros $n$ números primos.
+3. Construya una función que encuentre los primeros $n+1$ números primos.
+
+## Lectura de datos de nombres
+
+1. Entrar en https://datos.gob.ar/dataset/otros-nombres-personas-fisicas y descarguen un dataset de nombres para un año de su elección.
+2. Usen la función `read.csv` para leer el archivo en formato `data.frame`. Exploren el contenido del mismo. ¿Qué información hay en las columnas?
+
+```
+datos = read.csv('nombre_del_archivo')
+```
+3. Encuentren los nombres más y menos comunes. _Tip:_ la funciónes `max` y `min` retornan máximos y mínimos, y las funciones `which.max` y `which.min` identifican la (primera) posición en que estos ocurren. Comparen con usar la función `which`.
+4. Encuentren el nombre que incluya la terminación _el_ más común y el menos común. También el nombre que empiece con _a_ más y menos común.
