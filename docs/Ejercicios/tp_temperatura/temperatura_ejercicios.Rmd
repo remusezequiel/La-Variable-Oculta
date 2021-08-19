@@ -1,7 +1,7 @@
 ---
-title: "Temperatura histórica en C.A.B.A."
-author: "Ariel Salgado"
-date: "20 de Julio de 2021"
+title: "Temperatura histórica en C.A.B.A. - Solucion del TP"
+author: "Ezequiel Remus"
+date: "19 de Agosto de 2021"
 output:
   html_document:
     df_print: paged
@@ -10,7 +10,7 @@ output:
     theme: lumen
     toc: yes
     toc_float: yes
-subtitle: "Laboratorio de Datos"
+subtitle: "Trabajos Practicos - Laboratorio de Datos"
 ---
 
 # Este notebook
@@ -76,16 +76,100 @@ print(datos$fecha)
 
 Realice un gráfico que muestre la temperatura media en función de la fecha. _Sugerencia: agregando en_ `plot(x,y)` _la opción `type='l'` obtenemos un gráfico de lineas:_ `plot(x,y,type='l')`.
 
+* Solución: 
+
+Lo que tenemos que hacer es, tomar una variable `temp_media` en la cual guardaremos todos los valores de las temperaturas medias. Luego, tomamos con la funcion que hicimos para tomar las fechas, y agarramos los valores numericos de estas, luego, graficamos en $y$ la temperatura y en $x$ la fecha.
+
+```{r}
+temp_media = datos$media
+fechas = datos$fecha
+
+plot(fechas, temp_media, type='l')
+
+```
+
+
+
+
 #### ¿Qué puede decir de la evolución de la mínima y la máxima en función del tiempo?
 
 Realice un gráfico que muestre la evolución de las tres temperaturas (mínima, media y máxima) a la vez, con lineas y usando diferentes colores.
 _Los colores los indicamos usando la opción_ `col` _ en la función `plot`. _Para agregar lineas usamos la función `lines`.
 
+```{r}
+temp_min = datos$mÃ.nima
+temp_max = datos$mÃ.xima
+temp_media = datos$media
+fechas = datos$fecha  
+
+plot(fechas, temp_min, type = "l", col="blue")
+plot(fechas, temp_media, type = "l", col="green")
+plot(fechas, temp_max, type = "l", col="red")
+
+```
 
 #### ¿En qué año y mes se registró la temperatura máxima? ¿Y la mínima?
 
 Detecte, año, mes y fecha y repita el gráfico anterior, agregando un punto rojo y uno azul en la posición de la temperatura máxima y mínima.
 _Para agregar puntos a un gráfico, puede usar la función_ `points` _, similar a_ `lines` _. Para ubicar las posiciones donde ocurre el máximo y el mínimo de un vector aproveche las funciones_ `which.max` _y_ `which.min`.
+
+```{r}
+#-----------------------------------------
+# MAXIMO Y MINIMO DE TEMPERATURAS MINIMAS
+#-----------------------------------------
+
+rango_temperatura_minima = range(datos$mÃ.nima)
+
+d_min_min = datos$mÃ.nima == rango_temperatura_minima[1]
+fecha_min_min = datos$fecha[d_min_min == TRUE]
+d_min_max = datos$mÃ.nima == rango_temperatura_minima[2]
+fecha_min_max = datos$fecha[d_min_max == TRUE]
+
+  
+plot(fechas, temp_min, type = "l", main = "Temperaturas minimas en el tiempo")
+points(x = fecha_min_min, y = rango_temperatura_minima[1], col="blue")
+points(x = fecha_min_max, y = rango_temperatura_minima[2], col="red")
+
+```
+```{r}
+#-----------------------------------------
+# MAXIMO Y MINIMO DE TEMPERATURAS MEDIAS
+#-----------------------------------------
+
+rango_temperatura_media = range(datos$media)
+
+d_med_min = datos$media == rango_temperatura_media[1]
+fecha_med_min = datos$fecha[d_med_min == TRUE]
+
+d_med_max = datos$media == rango_temperatura_media[2]
+fecha_med_max = datos$fecha[d_med_max == TRUE]
+#Notemos que en este caso, se repiten los valores maximos de temperatura en varias ocaciones
+#como hago? -> es un vector!  
+
+plot(fechas, temp_media, type = "l", main = "MAXIMO Y MINIMO DE TEMPERATURAS MEDIAS")
+points(x = fecha_med_min, y = rango_temperatura_media[1], col="blue")
+points(x = fecha_med_max, y = rango_temperatura_media[2], col="red")
+```
+
+```{r}
+#-----------------------------------------
+# MAXIMO Y MINIMO DE TEMPERATURAS MAXIMAS
+#-----------------------------------------
+
+rango_temperatura_maxima = range(datos$mÃ.xima)
+
+d_max_min = datos$mÃ.xima == rango_temperatura_maxima[1]
+fecha_max_min = datos$fecha[d_max_min == TRUE]
+d_max_max = datos$mÃ.xima == rango_temperatura_maxima[2]
+fecha_max_max = datos$fecha[d_max_max == TRUE]
+
+  
+plot(fechas, temp_max, type = "l", main = "MAXIMO Y MINIMO DE TEMPERATURAS MAXIMAS")
+points(x = fecha_max_min, y = rango_temperatura_maxima[1], col="blue")
+points(x = fecha_max_max, y = rango_temperatura_maxima[2], col="red")
+
+```
+
 
 
 #### ¿En torno a que valor ronda la temperatura en C.A.B.A.?
