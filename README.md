@@ -1,14 +1,18 @@
-# Labo de Datos
+# La Variable Oculta - Mi RepoPedia
 
-Acá voy a ir subiendo todo lo referido a la materia. Tanto cosas que ponen los profes como cosas que voy a ir haciendo yo.
+Gracias a que estoy cursando el laboratorio de datos, me di cuenta que podia hacerme un repositorio dedicado
+a escribir apuntes en markdown, en particular en notbooks de R utilizando R studio. Este te da dos archivos el cual uno es .nb.html
+Sumando esto y git.io tenes una formula magica para armarte tus cuadernos de las materias dentro de todo rapido y al subirlas al repo ya tenes tu link
+para llevarte tus cuadernos a todos lados y verlos con un link. 
 
-Esto esta alojado en: [https://remusezequiel.github.io/Labo-de-Datos/index.html](https://remusezequiel.github.io/Labo-de-Datos/index.html)
+Así me surgio la idea de hacer este repo.
 
-## Cursada
+Esto esta alojado en: [https://remusezequiel.github.io/La-Variable-Oculta/](https://remusezequiel.github.io/La-Variable-Oculta/)
+
+
+## Cursada Laboratorio de Datos
 
 Estamos cursando los martes y jueves de 09:00 a 12:00
-
-## Profes
 
 ## Como aprobar:
 
