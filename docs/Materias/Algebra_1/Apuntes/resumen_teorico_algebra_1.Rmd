@@ -1,7 +1,16 @@
 ---
 title: "Resumen Teorico - Algebra 1"
 author: "Ezequiel Remus"
-output: html_notebook
+date: "21 de Agosto de 2021"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: lumen
+    toc: yes
+    toc_float: yes
+subtitle: "Trabajos Practicos - Laboratorio de Datos"
 ---
 
 # Conjuntos
@@ -40,3 +49,65 @@ Dado un conjunto referencial $U$, donde los conjuntos $A,B,C$ forman parte (esta
 
 > **Complemento:** $A^c = A' = \{x \in U : x \notin A\}$
 
+> **Unión:** $A \cup B = \{ x \in U : x \in A \hspace{0.2cm} \lor \hspace{0.2cm} x \in B\}$
+
+> **Intersección:** $A \cap B = \{x \in U : x \in A \hspace{0.2cm} \land \hspace{0.2cm} x \in B\}\}$
+
+> **Leyes de De Morgan:**
+>
+>> $(A \cup B)^c = A^c \cap B^c$
+>>
+>> $(A \cap B)^c = A^c \cup B^c$
+
+> **Leyes Distributivas**
+>
+>> $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+>>
+>> $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+
+> **Diferencia:**  $A - B = A \cap B^c$, lo cual es equivalente a
+>
+> $x \in A  \hspace{0.2cm} \land \hspace{0.2cm} x \in B \Leftrightarrow x \in A \hspace{0.2cm} \land \hspace{0.2cm} x \notin B$
+>
+> Es decir, es el conjunto de los elementos de $A$ que no estan en $B$
+
+> **Diferencia Simetrica:** $A \vartriangle B = \{ x \in U : (x \in A \hspace{0.2cm} \land \hspace{0.2cm} x \notin B) \hspace{0.2cm} \lor \hspace{0.2cm} (x \in A \hspace{0.2cm} \land \hspace{0.2cm} x \notin B)\}$
+>
+> Donde tambien son equivalentes las siguientes igualdades
+>
+> $A \vartriangle B = (A-B) \cup (B-A) = (A \cap B^c) \cup (B \cap A^c) = (A \cup B) - (A \cap B)$
+>
+> Es decir, son los elementos que estan o bien en uno o en el otro pero que no estan en la interseccion
+
+## Tablas de verdad
+
+Acá vamos a hacerla sencilla. Sabmos operar con vectores en `R` y con valores Boleanos.
+Por lo que solo definiremos a que son equivalentes logicos de la unión, intersección, etc. 
+Y luego, simplemente armaremos un pequeño script que nos diga los valores.
+
+- El *Complemento* se corresponde con la negación.
+- La *Unión* se corresponde con el `or`, es decir el "o no excluyente. 
+- La *Intersección* se corresponde con el `and`
+- La *Diferencia Simetrica* se corresponde con en `xor`
+- La *Inclución* se corresponde con la contención de un conjunto en otro.
+- La *Igualdad* se corresponde con el si y solo si.
+
+Hagamos una pequeña tabla de verdad en `R`
+
+```{r}
+V <- TRUE
+F <- FALSE
+
+A <- c(V,V,F,F)
+B <- c(V,F,V,F)
+
+cat("Siendo A:" , A, "\n")
+cat("Siendo B:" , B, "\n")
+cat("Se tiene que:", "\n")
+cat("A complemento B: ", A != B, "\n")
+cat("A unión B: ", A | B, "\n")
+cat("A intersección B: ", A & B, "\n")
+cat("A Dif. Simetrica B: ", xor(A,B), "\n")
+cat("A Igualdad B: ", A == B, "\n")
+```
+Quizas despues pueda mejorar un poquito la estetica de esto, por alguna razón separa todos los `cat` en varios bloques por mas que este en uno...
