@@ -1,0 +1,42 @@
+---
+title: "Resumen Teorico - Algebra 1"
+author: "Ezequiel Remus"
+output: html_notebook
+---
+
+# Conjuntos
+
+> **Definición (Informal)** : Un conjunto es una coleccion de objetos, que llamaremos 
+> $elementos$, que tiene la propiedad que dado un objeto cualquiera, se puede decir 
+> si ese objeto es un elemento del conjunto o no. (Idea de pertenencia)
+
+Debemos tener en cuenta que el orden de los elementos dentro de un conjunto no importa, además, un conjunto no tiene en cuenta repeticiones.
+
+*Pertenencia:*
+  
+  - Ejemplo
+  
+ 1. $A = \{ 1,2,3\} \Rightarrow 1 \in A, \hspace{0.2cm} 2 \in A , \hspace{0.2cm} pero  \hspace{0.2cm} 4 \notin A , \hspace{0.2cm} tampoco  \hspace{0.2cm}\varnothing \notin A$
+
+ 2. $B = \{ 2, \{1\}, \{2,3\}\} \Rightarrow \{1\} \in B, \{2,3\} \in B, \hspace{0.2cm} pero \hspace{0.2cm} 3 \notin B, \hspace{0.2cm} tampoco  \hspace{0.2cm} 3 \notin B$ 
+
+> **Definición (Subconjuntos e Inclusión)** :
+> Dado un conjnto $A$. Se dice que otro conjunto $B$ $\textit{está contenido}$  
+> en $A$, $B \subseteq A$, si todo elemento de $B$ es un elemento de $A$. En este 
+> caso $B$ es un subconjunto de $A$. Luego, como es obvio, si no esta contenido se
+> se nota $B \nsubseteq A$
+
+Observemos que, para que dos conjuntos sean iguales, uno debe estar siempre contenido en el otro, por lo que:
+$$A = B \Leftrightarrow A \subseteq B \hspace{0.2cm} y \hspace{0.2cm} B \subseteq A$$
+
+> **Definición (Conjunto de Partes)** :
+> Dado un cunjunto $A$. El *conjunto de partes* de $A$, que se nota $\mathcal{P}(A)$
+> es el conjunto formado por todos los subconjuntos posibles de $A$.
+> $$ \mathcal{P}(A) = \{ B: B \subseteq A\} \hspace{0.4cm} \lor \hspace{0.4cm} B \in \mathcal{P}(A) \Leftrightarrow  B \subseteq A$$
+
+## Operaciones entre conjuntos
+
+Dado un conjunto referencial $U$, donde los conjuntos $A,B,C$ forman parte (estan contenidos en $U$), definimos:
+
+> **Complemento:** $A^c = A' = \{x \in U : x \notin A\}$
+
