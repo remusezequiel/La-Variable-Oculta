@@ -84,7 +84,9 @@ Lo que tenemos que hacer es, tomar una variable `temp_media` en la cual guardare
 temp_media = datos$media
 fechas = datos$fecha
 
-plot(fechas, temp_media, type='l')
+plot(fechas, temp_media, type='l', lwd=0.5)
+grid()
+
 
 ```
 
@@ -102,9 +104,9 @@ temp_max = datos$mÃ.xima
 temp_media = datos$media
 fechas = datos$fecha  
 
-plot(fechas, temp_min, type = "l", col="blue")
-plot(fechas, temp_media, type = "l", col="green")
-plot(fechas, temp_max, type = "l", col="red")
+plot(fechas, temp_min, type = "l", col="blue", main="Temperaturas Minimas")
+plot(fechas, temp_media, type = "l", col="green", main="Temperaturas Medias")
+plot(fechas, temp_max, type = "l", col="red", main="Temperaturas Maximas")
 
 ```
 

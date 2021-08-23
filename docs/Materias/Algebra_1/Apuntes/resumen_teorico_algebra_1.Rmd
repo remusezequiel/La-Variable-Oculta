@@ -111,3 +111,12 @@ cat("A Dif. Simetrica B: ", xor(A,B), "\n")
 cat("A Igualdad B: ", A == B, "\n")
 ```
 Quizas despues pueda mejorar un poquito la estetica de esto, por alguna razón separa todos los `cat` en varios bloques por mas que este en uno...
+
+## Producto Cartesiano
+
+> **Definicion: (Prod. cartesiano)** Dados dos conjuntos $A, B$. El producto cartesiano de $A$ con $B$, el cual se nota $A \times B$, es el conjunto de los pares ordenados.
+> $$A \times B = \{ (x,y) : x \in A \hspace{0.2cm} \land \hspace{0.2cm} y \in B\}$$
+
+
+
+

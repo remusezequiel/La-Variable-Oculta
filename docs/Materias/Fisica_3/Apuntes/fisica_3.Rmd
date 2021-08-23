@@ -1,0 +1,115 @@
+---
+title: "Apunte de Fisica 3"
+author: "Ezequiel Remus"
+date: "21 de Agosto de 2021"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: lumen
+    toc: yes
+    toc_float: yes
+subtitle: "Apuntes sobre Electromagnetismo (F.3)"
+---
+
+# Ley de interacciónes electrostaticas (Coulomb)
+
+$F = \kappa \frac{|q_1| |q_2|}{r_{1,2}^2}$ Esto es en modulo.
+
+La fuerza como vector es 
+
+$\vec{F} = \kappa q_1 q_2 \frac{\vec{r_2} - \vec{r_1}}{|\vec{r_2} - \vec{r_1}|^3}$
+
+Suponiendo que tenemos dos cargas $1$ y $2$ respecto a un origen, tenemos que $r_1$ indica la posición de la carga $q_1$ respecto del origen y que  $r_2$ indica la posición de la carga $q_2$ respecto del origen. Luego, la fuerza que la carga $q_1$ le hace a $q_2$ (y viceversa) esta en la dirección de $\vec{r}_2 - \vec{r}_1$ . Dirección que une a ambas particulas
+
+Suponiendo que $q_1$ y $q_2$ tienen el mismo signo, entonces su producto es positivo, y como $\kappa$ tambien es positivo, entonces la fuerza que $q_1$ le hace a $q_2$ es repulsiva. En cambio, si tienen distinto signo se "atraen".
+
+Si dos particulas con cargas de igual signo interactuan, se tiene que si estan más lejos se repelen menos que si estan más cerca, diciendolo asi a lo bruto. Esto es porque la fuerza decae como $\frac{1}{d^2}$
+
+## Introducimos la idea del Campo Electrico
+
+Se tiene que la fuerza de interaccion electrostatica es:
+
+$$\vec{F} = \kappa q_1 q_2 \frac{\vec{r_2} - \vec{r_1}}{|\vec{r_2} - \vec{r_1}|^3} = 
+q_2 \kappa q_1 \frac{\vec{r}}{|\vec{r}|^3} = q_2 \vec{E}_1(\vec{r})$$
+
+Luego, $\vec{E}_1(\vec{r})$ podemos pensarla como una propiedad de la carga $q_1$
+sobre el espacio. La carga $q_1$ genera un campo electrico alrededor de si mismo, luego, dependiendo de donde esta la carga $q_2$ va a ser la dependencia del valor de la fuerza. Luego, puedo darme una idea (siempre y cuando las cargas se fijen en el espacio) solo viendo el campo de que es lo que esta pasando, independientemente de las cargas que interactuen, pues cada una genera su propio campo.
+
+Para cargas positivas, el campo va hacia afuera.
+
+Para cargas negativas, el campo va hacia adentro.
+
+
+## Principio de Superposición
+
+¿Que pasa cuando tengo un conjunto de cargas?
+
+*Cada carga contribuye al campo total de forma independiente*
+
+Veamos como es el campo de dos cargas que estan juntas. Para eso podemos emplear
+la siguiente applet [https://www.geogebra.org/m/xFvkEpwF](https://www.geogebra.org/m/xFvkEpwF)
+
+En esta podemos modificar los valores de las cargas y ver que pasa con la fuerza que siente el punto $A$ por la interaccion por los campos generados por cada carga. Como vemos, el campo resultante es la suma vectorial entre los campos generados por cada carga individualmente.
+
+Luego, el principio de superposición, matematicamente hablando, es una suma de vectores. En particular, para dos cargas seria:
+
+$\vec{E} = \vec{E}_1 + \vec{E}_2 = \kappa q_1 \frac{\vec{r} - \vec{r}_1}{|\vec{r} - \vec{r}_1|^3} + \kappa q_2 \frac{\vec{r} - \vec{r}_2}{|\vec{r} - \vec{r}_2|^3}$
+
+Suponiendo que la distancia entre las cargas es $a$, entonces $\vec{r}_1 = (0,0, \frac{a}{2})$ y $\vec{r}_2 = (0,0, -\frac{a}{2})$ siendo $\vec{r}$ un punto cualquiera del espacio, por ende, podemos describirlo como $\vec{r} =(x,y,z)$.
+
+Luego, tenemos que:
+
+$\vec{E}_x = k q_1 \frac{x}{[x^2 + y^2 + (z + \frac{a}{2})]^{3/2}} + k q_2 \frac{x}{[x^2 + y^2 + (z - \frac{a}{2})]^{3/2}}$
+
+$\vec{E}_y = k q_1 \frac{y}{[x^2 + y^2 + (z + \frac{a}{2})]^{3/2}} + k q_2 \frac{y}{[x^2 + y^2 + (z - \frac{a}{2})]^{3/2}}$
+
+$\vec{E}_z = k q_1 \frac{(z + \frac{a}{2}) }{[x^2 + y^2 + (z + \frac{a}{2})]^{3/2}} + k q_2 \frac{(z- \frac{a}{2})}{[x^2 + y^2 + (z - \frac{a}{2})]^{3/2}}$
+
+
+## Clase 2
+
+> Campo de una esfera cargada
+
+$\vec{E} = \int \int \int_V \kappa \rho \frac{r  - r'}{|r -r'|^3}dV'$
+
+Demsidad de carga:
+- Nula en todo el espacio
+- Exepto en un casquete donde vale $\sigma_0$
+
+$\vec{E}(\vec{r}) = \int \int_{Sup esf} \kappa \sigma_0 \frac{\vec{r}  - \vec{r}'}{|\vec{r}  - \vec{r}'|^3}dS'$
+
+Tomando : $R d\theta' R \sin{\theta'} d\varphi'$
+
+Luego:
+
+$\vec{E}(\vec{r}) = \sigma_0 R \int_{0}^{2\pi} \sin{\theta'} d\theta' \int_{0}^{2 \pi} \frac{\vec{r}  - \vec{r}'}{|\vec{r}  - \vec{r}'|^3} d \varphi'$ 
+
+¡*La integral se hace en cartesianas*!
+$\hat r$ $\hat\theta$ y $\hat{\varphi}$ no son fijos, es por esto que no se puede integrar en polares.
+
+
+Flujo atravez de una esfera
+
+$\Phi = \iint_{\vec{S}} \vec{E} \delta \vec{S}= \kappa 4 \pi Q = \frac{Q}{\epsilon_0}$
+
+Donde la integral es dentro de una superficie cerrada.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
