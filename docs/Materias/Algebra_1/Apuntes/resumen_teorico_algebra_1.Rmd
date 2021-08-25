@@ -117,6 +117,6 @@ Quizas despues pueda mejorar un poquito la estetica de esto, por alguna razón s
 > **Definicion: (Prod. cartesiano)** Dados dos conjuntos $A, B$. El producto cartesiano de $A$ con $B$, el cual se nota $A \times B$, es el conjunto de los pares ordenados.
 > $$A \times B = \{ (x,y) : x \in A \hspace{0.2cm} \land \hspace{0.2cm} y \in B\}$$
 
-
+Su representacion es en el plano de coordenadas.
 
 

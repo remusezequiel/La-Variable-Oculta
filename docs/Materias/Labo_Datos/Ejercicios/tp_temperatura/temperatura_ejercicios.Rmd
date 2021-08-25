@@ -7,7 +7,7 @@ output:
     df_print: paged
     toc: yes
   html_notebook:
-    theme: lumen
+    theme: darkly
     toc: yes
     toc_float: yes
 subtitle: "Trabajos Practicos - Laboratorio de Datos"
@@ -179,17 +179,118 @@ points(x = fecha_max_max, y = rango_temperatura_maxima[2], col="red")
 Calcule las temperaturas promedio y mediana a lo largo de todos los años usando la temperatura media mensual. ¿Son similares en este caso? Calcule la desviación estandar de la temperatura media y los cuartiles 1ro y 3ro, y agreguelos al gráfico original de la temperatura media. _La función_ `abline` _permite dibujar lineas horizontales a través de su argumento_ `h`.
 
 
+El promedio se calcula con la función `mean` y la mediana con la función `median`
+
+```{r}
+promedio = mean(temp_media) 
+mediana = median(temp_media)
+desv_estandar = sd(temp_media)
+dist_int_cuar = IQR(temp_media)
+
+cat("Promedio: ", " ",  promedio, "\n")
+cat("Mediana : ", " ", mediana, "\n")
+cat("Desviación estandar : ", " ", desv_estandar, "\n")
+cat("Teniendo encuanta que los cuartiles 0,25,50,75,100. Son : \n")
+cat("Cuantiles : ", quantile(temp_media), "\n")
+cat("Distancia Intercuartil: ", " ", dist_int_cuar, "\n")
+```
+
+Marquemos los cuantiles $25\%$ y $75\%$:
+
+```{r}
+plot(fechas, temp_media, type= "l", main="Cuantiles 1ro y 3ro sobre T. media")
+abline(h=8.95, col="pink")
+abline(h=18.275, col="orange")
+```
+
+
 #### ¿Cuál es el mes más frio del año? ¿Y el más cálido?
 
 Calcule la temperatura media, mínima y máxima promedio para cada mes, y construya un barplot de la temperatura media separado por mes. ¿Qué meses presentan temperaturas más atípicas?
+
+
+```{r}
+tomo_fechas_mes = function(mes_string) {
+  
+  m = datos$mes == mes_string
+  mes = datos$mes[m == TRUE]
+  
+  return(mes)
+}
+
+
+
+
+Promedio_minimas = function(meses) {
+   promedio = 0
+   temp = rep(0,12)
+   
+   for (i in 1:12) {
+      temp = datos$mÃ.nima[datos$mes == meses[i]]
+      promedio[i] = mean(temp)  
+   }
+   
+   return(promedio)
+}
+
+Promedio_medias = function(meses) {
+   promedio = 0
+   temp = rep(0,12)
+   
+   for (i in 1:12) {
+      temp = datos$media[datos$mes == meses[i]]
+      promedio[i] = mean(temp)  
+   }
+   
+   return(promedio)
+}
+
+Promedio_maximos = function(meses) {
+   promedio = 0
+   temp = rep(0,12)
+   
+   for (i in 1:12) {
+      temp = datos$mÃ.xima[datos$mes == meses[i]]
+      promedio[i] = mean(temp)  
+   }
+   
+   return(promedio)
+}
+
+dic_meses = c('Enero','Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre')
+
+#promedios = mean(tomo_temperatura("Enero"))
+prom_temp_minimas_meses = Promedio_minimas(dic_meses)
+prom_temp_medias_meses = Promedio_medias(dic_meses)
+prom_temp_maximas_meses = Promedio_maximos(dic_meses)
+cat("Promedios de temperaturas minimas por mes:\n", prom_temp_minimas_meses, "\n",
+    "Promedios de temperaturas medias por mes:\n", prom_temp_medias_meses, "\n",
+    "Promedios de temperaturas maximas por mes:\n", prom_temp_maximas_meses, "\n")
+barplot(prom_temp_minimas_meses, main="Promedios de temperaturas minimas por mes")
+```
+
+
 
 #### ¿Cuál es el mes con temperatura más variable?
 
 Calcule la variabilidad de la temperatura de cada mes como `máxima-mínima` (llamada _amplitud térmica_) y calcule el promedio mensual y construya un boxplot para cada mes. ¿En qué mes es más variable la temperatura? ¿Y en cuál menos? ¿Observa una relación con la temperatura del mes?
 
+
+
+
+
+
+
 #### ¿Cómo se relacionan la temperatura media y la variabilidad?
 
 Grafique la temperatura media contra la variabilidad. ¿Observa una relación? Calcule el coeficiente de correlación entre ambas. ¿Se condice con lo que observa en el gráfico?
+
+
+
+
+
+
+
 
 #### ¿Cómo cambió la temperatura a lo largo de los años?
 

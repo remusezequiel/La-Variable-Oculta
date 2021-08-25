@@ -1,0 +1,92 @@
+---
+title: "Ejercicios Fisica 3"
+author: "Ezequiel Remus"
+date: "25 de Agosto de 2021"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+subtitle: "Ejercicios sobre Electromagnetismo (F.3)"
+---
+
+# GUIA - 1
+
+## Ejercicio 1.1
+
+### Enunciado :
+
+> Calcular el cociente $q/m$ entre la carga y la masa de dos particulas idénticas
+> que se repelen electrostáticamente con la misma fuerza con que se atraen gravitatoriamente.
+> Comparar el valor hallado con el cociente $e/m$ para el electron.
+>
+>> Datos: $G=6,7 \times 10^{-11} N m^2 kg^{-2}$; $\kappa = 9 \times 10^9 N m^2 C^{-2}$; $m_e \approx 9 \times 10^31 Kg$; $e = 1,6 \times 10^{-19} C$ 
+
+### Solucion :
+
+> Suponemos que en este caso tenemos dos particulas idénticas de carga $q$ y masa $m$ 
+> distanciadas una respecto de la otra en una distancia $d$.
+>
+> Luego, la interaccion gravitatoria estara dada por:
+>
+>> $$\vec{F}_g = \frac{G m_1 m_2 \vec{r}_{1,2}}{|\vec{r}_{1,2}|^3}$$
+>
+> La interaccion electrostática estara dada por:
+>
+>> $$\vec{F}_e = \frac{\kappa q_1 q_2 \vec{r}_{1,2}}{|\vec{r}_{1,2}|^3}$$
+>
+> Ambas fuerzas son colineales donde ambas cargas son iguales y ambas masas son iguales para este ejemplo.
+>
+> Dado que el ejercicio nos plantea que ambas interacciones son equivalentes en modulo, tenemos que:
+>
+>> $$|\vec{F}_g| = |\vec{F}_e| \Leftrightarrow \frac{\kappa q^2}{d^2} = \frac{G m^2}{d^2}$$
+>
+>Luego, esta condición se da cuando se cumple la siguiente relación entre masa y carga:
+>
+>> $$\frac{q}{m} = \sqrt{\frac{G}{k}}$$
+>
+>> Notemos que, aplicando los valores de las constates:
+>
+
+```{r}
+
+G <- 6.7 * 10^(-11) 
+k <- 9 * 10^(9)
+
+cociente <- sqrt(G / k)
+
+cat("Relación masa carga: ", " ", cociente , "\n")
+```
+> Pero, ¿cómo es esta relación en la naturaleza? Veamos el cado del electron
+> Tomemos los datos de las masas del electro $m_e$ y su carga $e$ y implementemos el cociente $\frac{q}{m}$
+
+```{r}
+m_e <- 9 * 10^(-31)  
+e <- 1.6 * 10^{-19}
+
+cat("Relación masa carga: ", " ", e/m_e , "\n")
+
+```
+> Es decir, claramente las interacciones no son equiparables
+> 
+> Suponiendo entonces que dos electrones idénticos interactuan electrostatica y gravitatoriamente de manera clasica y despreciando cualquier otro tipo de interacción, se puede calcular el cociente entre ambas fuerzas con las formulas ya aplicadas en este problema
+>
+>> $$\frac{|\vec{F}_e|}{|\vec{F}_g|} = \frac{\kappa q^2}{G m^2}$$
+>
+> Teniendo en cuenta la carga y la masa del electrón este cociente da :
+>
+
+```{r}
+f_e <- k * e^(2)  
+f_g <- G * (m_e)^2  
+  
+cat("F_e / F_G = ", " ", f_e/f_g, "\n")  
+```
+
+
+> Donde se puede apreciar que la interacción gravitatoria es despreciable respecto a la electrostatica.
+
+

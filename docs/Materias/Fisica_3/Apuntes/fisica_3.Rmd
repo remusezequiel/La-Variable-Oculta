@@ -96,7 +96,9 @@ $\Phi = \iint_{\vec{S}} \vec{E} \delta \vec{S}= \kappa 4 \pi Q = \frac{Q}{\epsil
 
 Donde la integral es dentro de una superficie cerrada.
 
+Luego, el campo electrico de una carga $q$ en el Origen es:
 
+$\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} q \frac{\vec{r}}{|\vec{r}^3|}$
 
 
 
