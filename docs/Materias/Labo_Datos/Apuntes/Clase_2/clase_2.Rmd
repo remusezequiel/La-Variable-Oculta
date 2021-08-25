@@ -7,7 +7,7 @@ output:
     df_print: paged
     toc: yes
   html_notebook:
-    theme: lumen
+    theme: darkly
     toc: yes
     toc_float: yes
 subtitle: "Laboratorio de Datos"
