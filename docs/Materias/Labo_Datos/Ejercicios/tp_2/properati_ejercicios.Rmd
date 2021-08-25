@@ -1,5 +1,5 @@
 ---
-title: "Temperatura histórica en C.A.B.A. - Solucion del TP"
+title: "Reexplorando PROPERATI"
 author: "Ezequiel Remus"
 date: "25 de Agosto de 2021"
 output:
@@ -30,8 +30,56 @@ El dataset que usaremos pueden encontrarlo en la página de la materia (`ar_prop
 
 Construya un subset de los datos totales filtrando propiedades de Capital Federal, tipo de operación Venta y moneda en dólares.
 
+** Empecemos **
 
-* ¿Es el precio por metro cuadrado igual en toda el dataset? ¿Cómo varía?
+Leamos primero el dataSet:
+
+```{r}
+# Leo el archivo 
+datos <- read.csv('ar_properties.csv')
+# Analizo los nombres de las columnas del archivo
+print(colnames(datos))
+```
+```{r}
+# Quiero un subset con propiedades en venta de capital federal junto su precio
+
+# Tomo los datos necesarios
+propiedad <- datos$property_type
+precio <- datos$price
+
+# Creo las variables para filtrar
+pais <- datos$l1 == "Argentina"
+ciudad <- datos$l2 == "Capital Federal"
+operacion <- datos$operation_type == "Venta"
+moneda <- datos$currency == "USD"
+
+# primera parte del filtrado
+propiedades <- propiedad[pais & ciudad & operacion & moneda]
+precios <- precio[pais & ciudad & operacion & moneda]
+
+# Creamos Variables a Utilizar validando solo los elementos que no son NA
+na_propiedades = is.na(propiedades)
+propiedades_en_venta = propiedades[!na_propiedades]
+
+na_precios = is.na(precios)
+precios_prop_en_venta = precios[!na_precios]
+
+# Revisamos si esta todo OK
+head(propiedades)
+head(propiedades_en_venta)
+print(table(propiedades))
+print(table(propiedades_en_venta))
+print(table(is.na(propiedades)))
+print(table(is.na(propiedades_en_venta)))
+
+head(precios)
+head(precios_prop_en_venta)
+print(table(is.na(precios)))
+print(table(is.na(precios_prop_en_venta)))
+```
+Luego, trabajaremos con las variables `propiedades_en_venta` y `precios_prop_en_venta`.
+
+### ¿Es el precio por metro cuadrado igual en toda el dataset? ¿Cómo varía?
 _Cree precio por metro cuadrado (precio por m2). Caracterice esta variable usando las herramientas de estadística descriptiva vistas._
 
 
