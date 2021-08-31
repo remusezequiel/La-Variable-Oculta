@@ -24,9 +24,7 @@ Proponemos una serie de preguntas _guía_ a responder usando las herramientas pr
 El dataset que usaremos pueden encontrarlo en la página de la materia (`ar_properties.csv`). En caso de que existan dudas sobre como cargarlo, el notebook de estadística descriptiva (y los videos asociados) describen como hacerlo.
 
 
-# Preguntas
-
-## Primera parte
+# Preguntas: Primera parte
 
 Construya un subset de los datos totales filtrando propiedades de Capital Federal, tipo de operación Venta y moneda en dólares.
 
@@ -37,55 +35,179 @@ Leamos primero el dataSet:
 ```{r}
 # Leo el archivo 
 datos <- read.csv('ar_properties.csv')
+# visualizo solo una parte pequeña de los datos
+head(datos)
 # Analizo los nombres de las columnas del archivo
 print(colnames(datos))
 ```
+
 ```{r}
-# Quiero un subset con propiedades en venta de capital federal junto su precio
+# filtros que queremos
+pais      <- is.element(datos$l1,"Argentina")
+region    <- is.element(datos$l2,"Capital Federal")
+moneda    <- is.element(datos$currency,"USD")
+operacion <- is.element(datos$operation_type,"Venta")
 
-# Tomo los datos necesarios
-propiedad <- datos$property_type
-precio <- datos$price
+# los demas sin los na
+propiedad    <- !is.na(datos$property_type)
+lat          <- !is.na(datos$lat) 
+lon          <- !is.na(datos$lon) 
+price        <- !is.na(datos$price)
+sup_total    <- !is.na(datos$surface_total)
+sup_cubierta <- !is.na(datos$surface_covered) 
+barrio       <- !is.na(datos$l3) 
 
-# Creo las variables para filtrar
-pais <- datos$l1 == "Argentina"
-ciudad <- datos$l2 == "Capital Federal"
-operacion <- datos$operation_type == "Venta"
-moneda <- datos$currency == "USD"
+# condicion multiple
+# vector logico con TRUEs en los registros seleccionados
+new_vec <- (pais  & region & moneda       & propiedad & operacion & lat 
+            & lon & price  & sup_cubierta & sup_total & barrio)  
 
-# primera parte del filtrado
-propiedades <- propiedad[pais & ciudad & operacion & moneda]
-precios <- precio[pais & ciudad & operacion & moneda]
-
-# Creamos Variables a Utilizar validando solo los elementos que no son NA
-na_propiedades = is.na(propiedades)
-propiedades_en_venta = propiedades[!na_propiedades]
-
-na_precios = is.na(precios)
-precios_prop_en_venta = precios[!na_precios]
-
-# Revisamos si esta todo OK
-head(propiedades)
-head(propiedades_en_venta)
-print(table(propiedades))
-print(table(propiedades_en_venta))
-print(table(is.na(propiedades)))
-print(table(is.na(propiedades_en_venta)))
-
-head(precios)
-head(precios_prop_en_venta)
-print(table(is.na(precios)))
-print(table(is.na(precios_prop_en_venta)))
+# nueva base
+new_df <- datos[new_vec,c(3,4,10,17,19,23)] 
 ```
-Luego, trabajaremos con las variables `propiedades_en_venta` y `precios_prop_en_venta`.
+Luego, `new_df` es nuestro nuevo dataset en el cual solo guardamos las fechas de inicio y final.
 
-### ¿Es el precio por metro cuadrado igual en toda el dataset? ¿Cómo varía?
+```{r}
+# Imprimimos la cabeza de el nuevo datset
+head(new_df)
+```
+
+-----------------------------------------------
+
+## ¿Es el precio por metro cuadrado igual en toda el dataset? ¿Cómo varía?
 _Cree precio por metro cuadrado (precio por m2). Caracterice esta variable usando las herramientas de estadística descriptiva vistas._
 
+**Solucion:**
+```{r}
+new_df$preciom2 <- new_df$price / new_df$surface_total
+preciom2 <- new_df$preciom2
 
-* ¿Cuales propiedades son caras, promedio o baratas?
+summary(preciom2)
+```
+Se puede ver claramente entre los Cuartiles que los precios por metro cuadrado no es igual. Además, tenemos un minimo de $0,74$ y un maximo de $240000$.
+
+Nos podriamos preguntar que lleva a esta variacion. Por otro lado, ¿Como es que una propiedad puede valer $240000$ por $m^2$?¿Porqué sucede esto?¿Hay algo malo en el dataset para que esto pase?
+
+
+```{r}
+plot(new_df$surface_total, new_df$preciom2)
+```
+Este grafico a simple vista no parece decirme nada. Por otro lado podemos ver una gran concentracion de datos a partir de una superficie de $20000$. Hagamos un acercamiento
+
+```{r}
+filtroPt1  <- new_df$surface_total < 10000
+filtroPt2  <- new_df$surface_total<5000 & new_df$preciom2<5000
+filtroPt3 <- new_df$surface_total<1000 & new_df$preciom2<5000
+filtroPt4 <- new_df$surface_total<700 & new_df$preciom2<2000
+
+
+plot(new_df$surface_total[filtroPt1], new_df$preciom2[filtroPt1], 
+     xlab=expression('Superficie' (m^2)), ylab=expression('Precio (USD)'), 
+     main="Primer acercamiento")
+plot(new_df$surface_total[filtroPt2], new_df$preciom2[filtroPt2], 
+     xlab=expression('Superficie' (m^2)), ylab=expression('Precio (USD)'),
+     main="Segundo acercamiento")
+plot(new_df$surface_total[filtroPt3], new_df$preciom2[filtroPt3],
+     xlab=expression('Superficie' (m^2)), ylab=expression('Precio (USD)'),
+     main="Tercer acercamiento")
+plot(new_df$surface_total[filtroPt4], new_df$preciom2[filtroPt4],
+     xlab=expression('Superficie' (m^2)), ylab=expression('Precio (USD)'),
+     main="Cuarto acercamiento")
+```
+Acá solo podemos ver como se aglomeran los puntos al rededor del promedio dado. 
+Pero no es una forma muy amena de entender que esta pasando.
+
+Lo que si es seguro, es que el precio por metro cuadrado no es igual en todo el 
+dataset.
+
+A modo de histograma, podemos visualizar mejor que pasa.
+```{r}
+hist(preciom2[preciom2<8000], 50, main=expression('Frecuencia de los precios por ' (m^2)))
+```
+Histogramiemos que pasa con las superficies.
+```{r}
+summary(new_df$surface_total)
+
+hist(new_df$surface_total[new_df$surface_total<1000], 50, main=expression('Frecuencia de las superficies en ' (m^2)))
+```
+
+Acá, podemos ver que hay una variación enorme con respecto a los datos de las superficies totales. Sin embargo, la media respecto de las superficies es de $\sim 132 m^2$.
+Teniendo en cuenta que el precio promedio es de 
+
+```{r}
+summary(new_df$price)
+```
+Y para el precio por metro cuadrado es de:
+
+```{r}
+summary(new_df$preciom2)
+```
+
+Podriamos hacer la una aproximación (bastante mala) de que si tenemos una propiedad 
+de aproximadamente unos $68 m^2$ el precio por metro cuadrado de esta propiedad rondara los 
+$(U\$D)2702.74$
+
+```{r}
+aprox <- 132 * 2702.74
+print(aprox)
+```
+Notemos que lo que hicimos acá es ver si, a partir de definir un valor medio para 
+el $m^2$ podiamos calcular el precio estimado por la media para una propiedad (de indistinta clasificación) de unos $132 m^2$ totales, lo que es la media de las propiedades totales.
+
+Claramente se ve que la diferencia entre el precio promedio para una propiedad y 
+el precio calculado por la aproximacion es abismal
+```{r}
+print(276672/356761.1)
+```
+Aproximadamente un $77\%$ más. Lo que nos indica que claramente, el precio por metro cuadrado
+no es una unidad constante, sino que difiere de los demas parametros relacionados con los inmuebles.
+
+-----------------------------------------------
+
+## ¿Cuales propiedades son caras, promedio o baratas?
 _Construya una partición que separe el precio por metro cuadrado en tres categorías._
 
+En particular esta pregunta es bastante etraña. En particular nos piden decidir que 
+propiedades son mas caras, cuales mas baratas y cuales rondan un valor medio.
+
+En particular podemos partir de las siguientes divisiones:
+
+- Separarla por cuartiles.
+- Ver como varia el promedio respecto de su desviación standard.
+
+1. **CUARTILES**
+```{r}
+#BARATAS
+
+baratas_cuar = table(new_df[preciom2 < 2000,]$property_type)
+prop.table(baratas_cuar)
+```
+
+```{r}
+# MEDIOS
+medio_cuar = table(new_df[preciom2 > 2000 & preciom2 < 3142,]$property_type)
+prop.table(medio_cuar)
+```
+
+```{r}
+# ALTOS
+altos_cuar = table(new_df[preciom2 >3142,]$property_type)
+prop.table(altos_cuar)
+```
+
+La segunda forma seria: (promedio-sd, promedio+sd) ---->> promedio
+
+```{r}
+promedio <- mean(as.integer(datos$preciom2))
+sd <- sd(as.integer(preciom2))
+
+print(promedio)
+print(sd)
+#baratas_sd = table(new_df[new_df$preciom2 <= (promedio - sd),]$property_type)
+#prop.table(baratas_sd)
+```
+
+-----------------------------------------------
 
 * ¿Cómo cambia el precio por cantidad de habitaciones (_rooms_) en el dataset? ¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios?
 
@@ -111,7 +233,8 @@ _Para calcular la cantidad de días entre dos fechas, puede restarlas si están 
 _La función `weekdays` permite identificar a qué día corresponde el anuncio publicado._
 
 
-## Segunda parte
+# Preguntas: Segunda parte
+
 Amplíe el dataset para considerar todas las propiedades de argentina, con tipo de operación Venta o Alquiler (y cualquier moneda).
 
 

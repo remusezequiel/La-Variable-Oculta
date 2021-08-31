@@ -1,0 +1,111 @@
+---
+title: "Investigando Properati sin apuros"
+author: "Ezequiel Remus"
+date: "26 de Agosto de 2021"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+subtitle: "Pruebas - Laboratorio de Datos"
+---
+
+# Este Documento
+
+Acá voy a ir poniendo codigo de investigación del archivo `ar_properties`.
+
+# Empecemos
+
+### Analisis del contenido
+
+```{r}
+datos <- read.csv("ar_properties.csv")
+
+print(colnames(datos))
+```
+
+```{r}
+propiedades_totales <- datos$property_type
+tabla_propiedades <- table(propiedades_totales)
+
+print(tabla_propiedades)
+barplot(tabla_propiedades, main="Total Propiedades")
+```
+
+Veamos las superficies totales
+
+```{r}
+sup_total <- datos$surface_total
+tabla_superficies <- table(sup_total)
+
+barplot(tabla_superficies, main="Total de superficies")
+```
+Vemos que en el eje $x$ tenemos la cantidad de metros cuadrados de las superficies y en el eje $y$ tenemos la cantidad de 
+propiedades con esa cantidad de metros cuadrados.
+ 
+¿Hay propiedades con superficie $0$?
+
+```{r}
+cero_metros_cuadrados <- sup_total == 0
+tb = table(cero_metros_cuadrados)
+
+print(is.na(tb))
+
+na_superficies <- is.na(sup_total)
+
+```
+
+## Filtrado de datos y creacion de un nuevo `data.frame`
+
+Ahora, vamos a aplicar Filtros. Para esto aplicaremos la función `is.element`
+
+```{r}
+
+# filtros
+filtro.pais <- is.element(datos$l1,"Argentina")
+filtro.region <- is.element(datos$l2,"Capital Federal")
+filtro.moneda <- is.element(datos$currency,"USD")
+filtro.prop <- is.element(datos$property_type,"Departamento")
+filtro.oper <- is.element(datos$operation_type,"Venta")
+filtro.lat <- !is.na(datos$lat) # sin datos faltantes
+filtro.lon <- !is.na(datos$lon) # sin datos faltantes
+filtro.price <- !is.na(datos$price) # sin datos faltantes
+filtro.sup <- !is.na(datos$surface_covered) # sin datos faltantes
+filtro.barrio <- !is.na(datos$l3) # sin datos faltantes
+
+# Vector logico con TRUEs en los registros relaccionados
+nuevo <- (filtro.pais & filtro.region & filtro.moneda & filtro.prop & filtro.oper 
+          & filtro.lat & filtro.lon & filtro.price & filtro.sup & filtro.barrio)
+
+# Creamos Nueva base de datos
+nueva_base <- datos[nuevo,c(6,7,10,18,19)]
+print(nueva_base)
+```
+
+Ahora, queremos empezar a trabajar. Así que vamos a definir las variables con
+las que queremos trabajar.
+
+```{r}
+# definicion de variables para trabajar
+lat<-datos1b$lat
+lon<-datos1b$lon
+barrio<-datos1b$l3
+sup<-datos1b$surface_covered
+precio<-datos1b$price
+
+# nueva variable de interes
+pm2<-precio/sup 
+
+# descripcion de la variable pm2
+summary(pm2) 
+```
+
+
+
+
+
+
+

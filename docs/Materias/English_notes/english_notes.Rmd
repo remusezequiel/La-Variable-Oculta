@@ -1,0 +1,151 @@
+---
+title: "English Notes"
+author: "Ezequiel Remus"
+date: "August 27, 2021"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+subtitle: "Idiomas"
+---
+
+
+# Present Simple
+
+> Affirmative: 
+>
+>> I, we, you, they + *verb* 
+>>
+>> He, she, it + *verb*-(s / es)
+
+Examples:
+
+- I drive to work every day
+- He drive*s* to work every day
+
+We use *do* and *does* to make questions and negative sentences.
+
+> Questions:
+>
+>> *Do* + (I, you, we, they) + verb + ... ? 
+>>
+>> *Does* + (he, she, it) +verb + ... ?
+>
+> Negative:
+> 
+>> (I, you, we, they) + *don't* + verb + ...
+>>
+>> (he, she, it) + *dosen't* + verb + ...
+
+We use the present simple for:
+
+* Permanent state, repeated actions and routines. **Example:** He workes in a bank.
+
+* General truths and laws of nature. **Example:** The sun sets in the west.
+ 
+* Timetables and programmes. **Example:** The train arrives at 8:30
+
+* To give instructions or directions. 
+
+We use present simple with the following time expressions:
+
+* Usually, often, always.
+
+* Everyday, week, month, year.
+
+* In the morning, afternoun, evening.
+
+* At night, at the weekend, on monday
+
+# Present Continuous
+
+> Affirmative: 
+>
+>> I'm + *verb*-(ing) 
+>>
+>> (He, she, it)'s + *verb*-(ing)
+>>
+>> (you, we, they)'re + *verb*-(ing)
+>
+> Question:
+>
+>> *to be* + person + *verb*-(ing) + ...
+>
+> Negative:
+>
+>> person + *to be* + not + *verb*-(ing) + ...
+
+We use the present continuous for:
+
+* Action at the moment of speaking. **Example: ** I'm reading a good book.
+
+* Temporary actions (around now, but no at the actual moment of speaking).
+**Example: ** I'm looking for a new job these days.
+
+* To express annoyance, irritation or anger with adverbs such as: always, constantly, continually.
+**Example: ** You are constantly interrupting me when i'm talking.
+
+* Action we have already arranged to do in the near future, when the time and place have been decided.
+**Example: ** They are going to their new house next week.
+
+We use present continuous with the following time expressions.
+
+* Now, at the moment, at present, these days, still, nowadays, today, to night
+
+ 
+# Past Simple
+
+Very often the past ends in *ed* (regular verbs)
+
+*We invited them to our party, but they decided not to come.*
+
+-> But many verbs are irregular (2° Column)
+
+* Write -> wrote
+* See -> saw
+* go -> went
+
+In questions or negatives we use *did*, *didn't* + 'infinitive'.
+
+> Affirmative:
+>
+>> I enjoy*ed* the party
+>>
+>> They *went* ton the party
+>
+> Questions: 
+>
+>> *Did* + person + verb (infinitive) + ...
+>
+> Negative:
+>
+>> Person + *didn't* + verb (infinitive) + ...
+
+The past of *Be* is *was -> am, is (singular)* and *were -> are (plural)*
+
+We use the past simple for:
+
+* An action which happened at a definite time in the past. 
+**Example:** They went camping by the lake last month.
+
+* Actions which happened inmediately one after the other in the past. 
+**Example: ** First she paid the driver, then she get out of the taxi.
+
+*Past habits or states which are now finished (but we can also use the expression used to)
+**Example: ** Kitchens were very different a hundred years ago.
+
+We use past simple with the following time expresions:
+
+* Yesterday, then, when, how long ago
+* last night / week / month / year / "thuesday"
+
+
+
+
+
+
+
