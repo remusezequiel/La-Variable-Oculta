@@ -198,13 +198,28 @@ prop.table(altos_cuar)
 La segunda forma seria: (promedio-sd, promedio+sd) ---->> promedio
 
 ```{r}
-promedio <- mean(as.integer(datos$preciom2))
+promedio <- mean(as.integer(new_df$preciom2))
 sd <- sd(as.integer(preciom2))
 
-print(promedio)
-print(sd)
-#baratas_sd = table(new_df[new_df$preciom2 <= (promedio - sd),]$property_type)
-#prop.table(baratas_sd)
+cat("Promedio: ", promedio)
+cat("Desviación standard: ", sd)
+
+sd_menos = table(new_df[new_df$preciom2 <= (promedio - sd),]$property_type)
+sd_mas = table(new_df[new_df$preciom2 <= (promedio + sd),]$property_type)
+
+precio_may_promedio = table(new_df[new_df$preciom2 > (promedio),]$property_type)
+precio_men_promedio = table(new_df[new_df$preciom2 < (promedio),]$property_type)
+
+cat("\n","Promedio - sd", "\n")
+prop.table(sd_menos)
+cat("\n","Promedio + sd","\n")
+prop.table(sd_mas)
+
+cat("\n","Precios mayor al promedio", "\n")
+prop.table(precio_may_promedio)
+cat("\n","Precios menos al promedio","\n")
+prop.table(precio_men_promedio)
+
 ```
 
 -----------------------------------------------

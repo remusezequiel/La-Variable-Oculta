@@ -7,7 +7,7 @@ output:
     df_print: paged
     toc: yes
   html_notebook:
-    theme: lumen
+    theme: paper
     toc: yes
     toc_float: yes
 subtitle: "Trabajos Practicos - Laboratorio de Datos"
@@ -118,5 +118,12 @@ Quizas despues pueda mejorar un poquito la estetica de esto, por alguna razón s
 > $$A \times B = \{ (x,y) : x \in A \hspace{0.2cm} \land \hspace{0.2cm} y \in B\}$$
 
 Su representacion es en el plano de coordenadas.
+
+# Relaciones
+
+> **Definición:**(Relación)
+> Dados dos conjuntos $A$ y $B$. Una relación $\mathcal{R}$ de $A$ en $B$ es
+> un subconjunto cualquiera $\mathcal{R}$ del producto cartesiano $A \times B$.
+> Es decir, $\mathcal{R}$ es una relación de $A$ en $B$ si $\mathcal{R} \in \mathcal{P}(A \times B)$
 
 
