@@ -3,14 +3,13 @@ title: "Resumen Teorico - Algebra 1"
 author: "Ezequiel Remus"
 date: "21 de Agosto de 2021"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
-  html_notebook:
-    theme: paper
-    toc: yes
-    toc_float: yes
-subtitle: "Trabajos Practicos - Laboratorio de Datos"
+   rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+subtitle: "Algebra 1"
 ---
 
 # Conjuntos
@@ -126,4 +125,5 @@ Su representacion es en el plano de coordenadas.
 > un subconjunto cualquiera $\mathcal{R}$ del producto cartesiano $A \times B$.
 > Es decir, $\mathcal{R}$ es una relación de $A$ en $B$ si $\mathcal{R} \in \mathcal{P}(A \times B)$
 
+Entonces, si $x \in A$ y $y \in B$
 

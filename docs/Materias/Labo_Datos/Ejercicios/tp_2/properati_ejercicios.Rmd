@@ -3,13 +3,12 @@ title: "Reexplorando PROPERATI"
 author: "Ezequiel Remus"
 date: "25 de Agosto de 2021"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
-  html_notebook:
-    theme: darkly
-    toc: yes
-    toc_float: yes
+   rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
 subtitle: "Trabajos Practicos - Laboratorio de Datos"
 ---
 
@@ -198,35 +197,52 @@ prop.table(altos_cuar)
 La segunda forma seria: (promedio-sd, promedio+sd) ---->> promedio
 
 ```{r}
+# Tomo los valores del promedio y la desviación standar
 promedio <- mean(as.integer(new_df$preciom2))
 sd <- sd(as.integer(preciom2))
 
-cat("Promedio: ", promedio)
-cat("Desviación standard: ", sd)
+pm2 <- new_df$preciom2
+prom_men_sd <- promedio - sd
+prom_mas_sd <- promedio + sd
 
-sd_menos = table(new_df[new_df$preciom2 <= (promedio - sd),]$property_type)
-sd_mas = table(new_df[new_df$preciom2 <= (promedio + sd),]$property_type)
+sd_menos = table(new_df[pm2 <= prom_men_sd,]$property_type)
+p_prom   = table(new_df[(pm2 > prom_men_sd) & (pm2 < prom_mas_sd),]$property_type)
+sd_mas   = table(new_df[new_df$preciom2 <= (promedio + sd),]$property_type)
 
-precio_may_promedio = table(new_df[new_df$preciom2 > (promedio),]$property_type)
-precio_men_promedio = table(new_df[new_df$preciom2 < (promedio),]$property_type)
+print("------------------------------------------")
+cat("\t", "Promedio: ", promedio, "\n")
+cat("\t", "Desviación standard: ", sd, "\n")
+print("------------------------------------------")
 
-cat("\n","Promedio - sd", "\n")
+
+
+print("------------------------------------------")
+cat("\n", "\t","Promedio - sd", "\n")
 prop.table(sd_menos)
-cat("\n","Promedio + sd","\n")
+print("------------------------------------------")
+cat("\n","\t", " +/- Promedio","\n")
+prop.table(p_prom)
+print("------------------------------------------")
+cat("\n","\t", "Promedio + sd","\n")
 prop.table(sd_mas)
+print("------------------------------------------")
 
-cat("\n","Precios mayor al promedio", "\n")
-prop.table(precio_may_promedio)
-cat("\n","Precios menos al promedio","\n")
-prop.table(precio_men_promedio)
 
 ```
 
+Notemos que la desviación standard es casi del orden del promedio. 
+Luego, segun estos datos, si tomamos como baratos a las propiedades las cuales son 
+menores a la diferencia entre el promedio y la desviación standar, las casas sony los
+comercios suelen ser mas baratos. Luego, cerca del promedio tenemos que el porcentaje esta gobernado por los departamentos, al igual que para los caros (promedio + sd).
 -----------------------------------------------
 
-* ¿Cómo cambia el precio por cantidad de habitaciones (_rooms_) en el dataset? ¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios?
+-----------------------------------------------
+## ¿Cómo cambia el precio por cantidad de habitaciones (_rooms_) en el dataset? ¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios?
 
 
+
+
+-----------------------------------------------
 * ¿Qué considera que describe mejor el precio de una propiedad, su número de habitaciones (_rooms_) o su superficie cubierta?
 
 

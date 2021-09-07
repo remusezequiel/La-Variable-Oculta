@@ -1,0 +1,52 @@
+---
+title: "Exercices - Class 2"
+author: "Ezequiel Remus"
+date: "september 6, 2021"
+subtitle: "Idiomas"
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+
+---
+
+
+# Page 10
+
+## 1-a
+
+* Whats the difference between a father and a parent?
+
+The father is the male parent, while parent could be the father or the mother itself.
+
+According to the deffinition in [the cambrige dictionary](https://dictionary.cambridge.org/es/)
+A parent is the mother or fother of a person or an animal, or somewho looks after a person
+ in the same way that a parent does.
+ 
+* Whats the difference between a mother and a stepmother?
+
+A stepmother is a woman who is married to someones father but who is not their real mother.
+
+* Whats the difference between a brother and a brother-in-law?
+
+A brother is a man or a boy with the same parents as another person. While, a brother in law
+is the husband of your sister or brother, or the brother of your husband or wife, or the man who is married to the sister or 
+brother or your wife or husband.
+
+* Whats the difference between a stepsister and a half-sister?
+
+A stepsister is the daughter of a person one of your parents has married. 
+She is not your "real" sister.
+
+* Whats the difference between a grandfather and a great-grandfather?
+
+* Whats the difference between an adopted child and an only child?
+
+* Whats the difference between brothers and sisters and siblings?
+
+* Whats the difference between youy immediate family and your extended family?
+
+

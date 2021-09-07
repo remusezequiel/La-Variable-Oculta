@@ -3,13 +3,12 @@ title: "English Notes"
 author: "Ezequiel Remus"
 date: "August 27, 2021"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
-  html_notebook:
-    theme: darkly
-    toc: yes
-    toc_float: yes
+   rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
 subtitle: "Idiomas"
 ---
 
