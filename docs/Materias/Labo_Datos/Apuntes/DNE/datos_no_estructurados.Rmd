@@ -1,16 +1,20 @@
 ---
 title: "Otras maneras de consumir datos"
-author: "Martin Elias Costa"
-date: "20 de Julio de 2021"
+author: "Ezequiel Remus"
+date: "9 de septiembre de 2021"
 output:
-   rmdformats::readthedown:
-    self_contained: true
-    thumbnails: true
-    lightbox: true
-    gallery: false
-    highlight: tango
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
 subtitle: "Laboratorio de Datos"
 ---
+# ESTA ES UNA COPIA DEL NOTBOOK DEL PROFESOR 
+
+> Como los ejercicios y explicaciones estaban en el mismo notebook, me parecio que estaba bueno modificar dicho archivo
 
 # Datos No Estructurados
 
@@ -259,18 +263,26 @@ Acá, podemos agregar una columna que sea justamente dicha relacion y ver que on
 
 ```{r}
 # Tomo las superficies terrestres
+superficies['rel_mar_tierra'] <-  superficies$sup_maritima_km/superficies$sup_terrestre_km
+# Variable con superficies terrestre
 sup_terrestre <- superficies$sup_terrestre_km
-na_relaciones <- !is.na( sup_marina/sup_terrestre )
+
+na_relaciones <- !is.na( superficies$rel_mar_tierra )
+
 relaciones <- superficies$rel_mar_tierra[ na_relaciones==TRUE ]
 
 mayor_relacion <- max(relaciones)
 pais_max_relacion <- superficies$Country[ superficies$rel_mar_tierra == mayor_relacion ]
+
+
 
 cat("Pais con mayor relación sup_marina / sup_terrestre: ", " ", pais_max_relacion)
 cat("\n\nCon un valor de: " , " ", mayor_relacion)
 ```
 Notemos, que la relación es mucho mayor que 1. Esto nos indica que respecto del 
 total de superficie de Greenland la superficie marina tiene una mayor influencia. 
+
+
 
 5. Cuenten cuántos paises tiene áreas que empiezan con el número 1, cuántas con 2,3,4,5,6,7,8,9. Pista: usen la columna original en formato *char* y la funcion *substr*
 
@@ -291,15 +303,15 @@ for (i in str_vec_areas){
   init_num <- c(init_num, as.numeric(substr(i, 1,1)))
 }
 
-cantidades <-c( "unos"    = length(init_num[init_num == 1]), 
-                "dos"     = length(init_num[init_num == 2]),
-                "tres"    = length(init_num[init_num == 3]), 
-                "cuatros" = length(init_num[init_num == 4]), 
-                "cincos"  = length(init_num[init_num == 5]), 
-                "seis"    = length(init_num[init_num == 6]),
-                "sietes"  = length(init_num[init_num == 7]), 
-                "ochos"   = length(init_num[init_num == 8]),
-                "nueves"  = length(init_num[init_num == 9])
+cantidades <- c( "unos"    = length(init_num[init_num == 1]), 
+                 "dos"     = length(init_num[init_num == 2]),
+                 "tres"    = length(init_num[init_num == 3]), 
+                 "cuatros" = length(init_num[init_num == 4]), 
+                 "cincos"  = length(init_num[init_num == 5]), 
+                 "seis"    = length(init_num[init_num == 6]),
+                 "sietes"  = length(init_num[init_num == 7]), 
+                 "ochos"   = length(init_num[init_num == 8]),
+                 "nueves"  = length(init_num[init_num == 9])
                 )
 cantidades
 ```
@@ -310,7 +322,7 @@ cantidades
 
 ```{r}
 hist(init_num, xlab = "numero de inicio", ylab = "fracuencia", main = "Cantidades de numeros por inicial",
-     col = "orange")
+     col = "orange", breaks = seq(0,11,1)-0.5)
 ```
 
 
