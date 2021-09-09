@@ -29,7 +29,7 @@ Por supesto que esta lista es enorme y escapa a los contenidos de la materia ver
 
 ## Datos semi-estructurados: XML, HTML, JSON
 
-Este tipo de formatos suelen ser el resultado de peticiones *http* hechas a través de internet. No es la idea de este curso estudiar el protocolo http y todas sus posibilidades, basta con saber que a partir de una URL (Uniform Resource Locator) podemos acceder a ciertos recursos específicos. Por ejemplo, si hacemos un pedido a la URL `https://lcd.exactas.uba.ar/materias/` recibimos como respuesta una serie de caracteres que conforman un archivo HTML. Por supuesto que para mostrar una página web vamos a necesitar un montón de archivos adicionales que iran llegando mediante **otros** pedidos http dependiendo de cual sea el código. Luego de ese proceso iterativo términamos con algo como esto:
+Este tipo de formatos suelen ser el resultado de peticiones *http* hechas a través de internet. No es la idea de este curso estudiar el protocolo http y todas sus posibilidades, basta con saber que a partir de una URL (Uniform Resource Locator) podemos acceder a ciertos recursos específicos. Por ejemplo, si hacemos un pedido a la URL [lcd](`https://lcd.exactas.uba.ar/materias/`) recibimos como respuesta una serie de caracteres que conforman un archivo HTML. Por supuesto que para mostrar una página web vamos a necesitar un montón de archivos adicionales que iran llegando mediante **otros** pedidos http dependiendo de cual sea el código. Luego de ese proceso iterativo términamos con algo como esto:
 
 ![Screenshot de la página de exactas](lcd.png)
 
@@ -118,8 +118,9 @@ En los sitios suele haber un archivo en la URL base /robots.txt (por ejemplo <ht
 
 Extraigan la tabla de velocidad de distintos animales de <https://es.wikipedia.org/wiki/Velocidad_de_los_animales>.
 
-```{r eval = FALSE}
-  pag_wiki = read_html("https://es.wikipedia.org/wiki/Velocidad_de_los_animales")
+```{r}
+  require(rvest)
+  pag_wiki = read_html("https://es.wikipedia.org/wiki/Velocidad_de_los_animales", encoding = "utf8")
   elem_tabla = html_element(pag_wiki, ".wikitable")
   velocidades = html_table(elem_tabla)
   velocidades
@@ -128,31 +129,26 @@ Extraigan la tabla de velocidad de distintos animales de <https://es.wikipedia.o
 
 Van a notar que la columna interesante es muy sucia porque tiene rangos de velocidades (hay que tomar una decision y reemplazar por promedio, maxima o minima) y ademas tiene llamadas al pie de citas que dificultan la conversion a numeros. Para poder eliminar esta información vamos a ver en que tags html se encuentran almacenadas y los vamos a borrar del codigo de la página antes de extraer la tabla.
 
-
-
 Vemos que las etiquetas que nos molestan son `<span>` y `<sup>`. Vamos a eliminarlas, para eso vamos a usar de la libreria *xml2*.
 
 ```{r}
 require(xml2) # REcuerden instalarla con install.packages('xml2') si no la tienen
 ```
 
-```{r eval = FALSE}
+```{r}
 
 sups = html_elements(pag_wiki, xpath='//table//sup') # elegimos todos los elementos sup que esten dentro de un elemento table
 spans = html_elements(pag_wiki, xpath='//table//span') # elegimos todos los elementos span que esten dentro de un elemento table
 xml_remove(spans) # Los eliminamos
 xml_remove(sups)
+
 ```
 
 Ahora si vuelvan a intentar parsear la tabla
 
-```{r eval = FALSE}
+```{r}
   velocidades = html_table(elem_tabla)
   velocidades
-  
-  #
-  # (completar)
-  #
   
 ```
 
@@ -162,17 +158,26 @@ Aún así necesitamos procesar un poco más la columna de velocidad. Tenemos que
 - vel_numero = gsub('[^0-9,]','', vel_numero) *# Reemplaza por nada todo lo que ***NO ***sea numero o ','*
 - vel_numero = gsub(',','.', vel_numero) *# Reemplaza coma por punto para poder convertir con as.double()*
 
-```{r eval = FALSE}
+```{r}
+  
+vel_vec <- velocidades$`Velocidadkm/h`
+vel_new <- c()
 
-for (vel_str in ________){  ## Completar
- ## Completar
+for (i in vel_vec){ 
+  
+  cambio_guion <- gsub("[^0-9,]", "-", i) # Sino hacia esto la linea 46 quedava con guion
+  vel_numero <- strsplit(cambio_guion, '_|-')[[1]][1] # recien ahi dividi todo a partir de los guines
+  vel_numero <- gsub("[^0-9,]", "", vel_numero)
+  vel_numero <- gsub(',','.', vel_numero)
+  vel_new <- c(vel_new, as.numeric(vel_numero))
 }
 
+summary(vel_new)
 ```
 
 ### Extra desafío
 
-Esto es opcional **no lo vamos a resolver en clase**. En la tabla de velocidades de animales cada animal tiene un link a su página de wikipedia. El desafio es recorrer esos links y extaer de cada animal su clase Ej:
+Esto es opcional **no lo vamos a resolver en clase**. En la tabla de velocidades de animales cada animal tiene un link a su página de wikipedia. El desafio es recorrer esos links y extaer de cada animal su clase.
 
 
 Y explorar si existe alguna relación entre las clases de animal y sus respectivas velocidades.
@@ -197,11 +202,117 @@ summary(superficies$area_km)
 ```
 
 1. Conviertan las columnas que consideren apropiadas en datos numericos
-1. ¿Cuál es el pais de mayor superficie?
-1. ¿Cual es el pais con mayor superficie maritima?
-1. ¿Cuál tiene la mayor relación sup. agua / sup. tierra?
-1. Cuenten cuántos paises tiene áreas que empiezan con el número 1, cuántas con 2,3,4,5,6,7,8,9. Pista: usen la columna original en formato *char* y la funcion *substr*
-1. Hagan un histograma ¿Hay algún patrón? Pista: https://es.wikipedia.org/wiki/Ley_de_Benford (para una versión más amena vean éste capítulo de serie https://www.imdb.com/title/tt12816822/ )
+
+Notemos que para resolver las preguntas de abajo, solo hacen falta el area total en kilometros 
+y el area terrestre, es decir el `Land Area`. 
+
+```{r}
+# Creamos una columna con las areas terrestres
+superficies['sup_terrestre_km'] <- as.numeric(gsub(',','', superficies$`Land Area (Km²)`))
+# Creamos una columna con area no terrestre (marina)
+superficies['sup_maritima_km'] <- as.numeric(gsub(',','', superficies$area_km - superficies$sup_terrestre_km))
+
+```
+
+
+2. ¿Cuál es el pais de mayor superficie?
+
+Hagamos un sumario de las superficies totales. Trabajaremos siempre en kilometros.
+```{r}
+sup_total <- superficies$area_km
+summary(sup_total)
+```
+Luego, la que coincidira con el valor maximo es:
+```{r}
+# Tomo el maximo
+maximo <- range(sup_total)[2]
+
+pais_max_area <- superficies$Country[superficies$area_km == maximo]
+
+cat("El pais con un area total maximo es: " , " " , pais_max_area)
+cat("\n \n Cuya area es: " , " ", maximo)
+```
+ Como era de esperar, la que tenia mator area total era *Rusia*
+
+3. ¿Cual es el pais con mayor superficie maritima?
+
+Ejercicio muy similar.
+
+```{r}
+sup_marina <- superficies$sup_maritima_km
+
+# Tomo el maximo
+maximo_maritimo <- range(sup_marina)[2]
+
+pais_max_area_maritimo <- superficies$Country[superficies$sup_maritima_km == maximo_maritimo]
+
+cat("El pais con superficie maritima maxima es: " , " " , pais_max_area_maritimo)
+cat("\n\nCuya area maritima es: " , " ", maximo_maritimo)
+
+```
+
+La verdad, no la vi venir.
+
+4. ¿Cuál tiene la mayor relación sup. agua / sup. tierra?
+
+Acá, podemos agregar una columna que sea justamente dicha relacion y ver que onda.
+
+```{r}
+# Tomo las superficies terrestres
+sup_terrestre <- superficies$sup_terrestre_km
+na_relaciones <- !is.na( sup_marina/sup_terrestre )
+relaciones <- superficies$rel_mar_tierra[ na_relaciones==TRUE ]
+
+mayor_relacion <- max(relaciones)
+pais_max_relacion <- superficies$Country[ superficies$rel_mar_tierra == mayor_relacion ]
+
+cat("Pais con mayor relación sup_marina / sup_terrestre: ", " ", pais_max_relacion)
+cat("\n\nCon un valor de: " , " ", mayor_relacion)
+```
+Notemos, que la relación es mucho mayor que 1. Esto nos indica que respecto del 
+total de superficie de Greenland la superficie marina tiene una mayor influencia. 
+
+5. Cuenten cuántos paises tiene áreas que empiezan con el número 1, cuántas con 2,3,4,5,6,7,8,9. Pista: usen la columna original en formato *char* y la funcion *substr*
+
+Bueno, aca me recomiendan usar la funcion `substr` sobre las filas indicadas.
+Revisando la (documentación)[https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/substr] 
+Podemos ver como funciona.
+
+Luego, lo que busco es contar. Por lo tanto, primero debeo hacer un vector con todos las 
+primeros numeros de todos lo elementos de areas. Despues, podemos pasarlos a numeros y
+quizas hacer un boxplot.
+
+```{r}
+str_vec_areas <- superficies$`Tot. Area (Km²)`
+init_num <- c()
+
+
+for (i in str_vec_areas){
+  init_num <- c(init_num, as.numeric(substr(i, 1,1)))
+}
+
+cantidades <-c( "unos"    = length(init_num[init_num == 1]), 
+                "dos"     = length(init_num[init_num == 2]),
+                "tres"    = length(init_num[init_num == 3]), 
+                "cuatros" = length(init_num[init_num == 4]), 
+                "cincos"  = length(init_num[init_num == 5]), 
+                "seis"    = length(init_num[init_num == 6]),
+                "sietes"  = length(init_num[init_num == 7]), 
+                "ochos"   = length(init_num[init_num == 8]),
+                "nueves"  = length(init_num[init_num == 9])
+                )
+cantidades
+```
+
+
+
+6. Hagan un histograma ¿Hay algún patrón? Pista: https://es.wikipedia.org/wiki/Ley_de_Benford (para una versión más amena vean éste capítulo de serie https://www.imdb.com/title/tt12816822/ )
+
+```{r}
+hist(init_num, xlab = "numero de inicio", ylab = "fracuencia", main = "Cantidades de numeros por inicial",
+     col = "orange")
+```
+
 
 ## Acceso programatico a datos (APIs)
 
