@@ -18,35 +18,90 @@ output:
 
 ## 1-a
 
-* Whats the difference between a father and a parent?
+1. Whats the difference between a father and a parent?
 
 The father is the male parent, while parent could be the father or the mother itself.
 
 According to the deffinition in [the cambrige dictionary](https://dictionary.cambridge.org/es/)
-A parent is the mother or fother of a person or an animal, or somewho looks after a person
+A parent is the mother or father of a person or an animal, or somewho looks after a person
  in the same way that a parent does.
  
-* Whats the difference between a mother and a stepmother?
+2. Whats the difference between a mother and a stepmother?
 
 A stepmother is a woman who is married to someones father but who is not their real mother.
 
-* Whats the difference between a brother and a brother-in-law?
+3. Whats the difference between a brother and a brother-in-law?
 
 A brother is a man or a boy with the same parents as another person. While, a brother in law
 is the husband of your sister or brother, or the brother of your husband or wife, or the man who is married to the sister or 
 brother or your wife or husband.
 
-* Whats the difference between a stepsister and a half-sister?
+4. Whats the difference between a stepsister and a half-sister?
 
 A stepsister is the daughter of a person one of your parents has married. 
-She is not your "real" sister.
+She is not your "real" sister. 
 
-* Whats the difference between a grandfather and a great-grandfather?
+A half-sister is a sister who is the daugher
+of onlyone of your parents.
 
-* Whats the difference between an adopted child and an only child?
+Then, the difference between a stepsister and a half-sister is that a stepsister 
+is not the daugther of any of your parents
 
-* Whats the difference between brothers and sisters and siblings?
+5. Whats the difference between a grandfather and a great-grandfather?
 
-* Whats the difference between youy immediate family and your extended family?
+A grandfather is the father of one of your parents, while a grate-grandfather is the grandfather of one of your parents.
+This means, that a grate-grandfather is the father of one of your grandfathers.
+
+6. Whats the difference between an adopted child and an only child?
+
+An adopted child has been legally taken by another family to be taken care of as their own child.
+An only child has no brothers.
+
+Then, the difference between an adopted child and an only child is that, an only child could be adopted or not
+but he hasn't got brothers, while an adopted child could have brothers.
+
+7. Whats the difference between brothers and sisters and siblings?
+
+The siblings is the plural form to say brothers and sisters. Brothers are de male 
+sibiling, while sisters are the female sibliling. 
+
+8. Whats the difference between your immediate family and your extended family?
+
+Your inmmediate family concists in your closest relations, such as your parents, children, husband, or wife.
+Then, your extended family is a family unit that includes grandmothers, grandfathers, aunts, and uncles, etc. in addition to parents and children
+
+## 1-c
+
+1. $14 \%$
+2. $45 \%$
+3. $40 \%$
+4. $30$ (years)
+5. $32$ (years)
+6. $10 \%$
+7. $17 \%$
+8. $2$
+
+# Page 113
+
+## a) Circle the correct form...
+
+1. Shall we invite your parents for sunday lunch?
+2. Oh really? I´ll make a cake.
+3. I´m not going to have dinner with my family tonight.
+4. Are you going to go to Jo's party next weekend? 
+5. You can trust me. I won't tell anyone what you told me.
+6. We're visiting my grandparents.
+7. I think the birth rate will go down in my country in the next few years.
+8. My grandfather is going to retire at the end of the month.
+9. 
+
+
+
+
+
+
+
+
+
 
 
