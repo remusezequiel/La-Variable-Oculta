@@ -1,0 +1,280 @@
+---
+title: "TP - Transformando datos con dplyr"
+author: "Ezequiel Remus"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+subtitle: "Laboratorio de Datos"
+---
+
+```{r}
+require(palmerpenguins)
+require(dplyr)
+```
+
+## 1. 
+> Usar `filter()` para crear un subconjunto de datos que contenga sólo pinguinos de la isla Biscoe y tengan un pico de 48 mm de largo, o más
+
+```{r}
+penguins %>% 
+  filter(island == "Biscoe", bill_length_mm > 48) 
+```
+
+## 2.
+> Crear otro dataset con la información de pinguinos Adelie machos que no hayan sido vistos en el año 2008.
+
+
+```{r}
+penguins_subset_uno <- penguins %>% filter(species=="Adelie", sex=="male", year != 2007)
+penguins_subset_uno
+```
+
+
+## 3. 
+> Del dataset penguins quedarse con todas las variables excepto year, sex y body_mass_g.
+
+```{r}
+penguins %>% 
+  select(species, island, bill_depth_mm, bill_length_mm, flipper_length_mm, )
+```
+
+
+## 4. 
+> Crear un subconjunto de los datos de penguins sólo con las obsevaciones de pinguinos machos con aletas de más de 200 mm de largo y quedarse con todas las columnas que terminan con “mm”. (usar la función ends_with()).
+
+```{r}
+pinguinos_machos_200mm <- penguins %>% 
+  filter(sex=="male", flipper_length_mm >=200) %>%
+  select(ends_with("mm"))
+
+pinguinos_machos_200mm
+```
+
+
+## 5.
+> Empezando con penguins, hacer un pipe (%>%) que: (a) se quede sólo con las observaciones de la isla Dream. (b) se quede con las variables species y todas las que empiece con bill.
+
+```{r}
+eje_5_a <- penguins %>% filter(island == "Dream") 
+eje_5_b <- penguins %>% select(species, starts_with("bill"))
+
+eje_5_a
+eje_5_b
+```
+
+## 6. 
+> Mover todas las variables factor después de las columnas integer. Se puede usar relocate() junto con is.integer y is.factor.
+
+```{r}
+penguins %>% relocate(where(is.integer), .before = is.factor)
+```
+
+## 7. Mover todas las variables factor después de las columnas integer. Se puede usar relocate() junto con is.integer y is.factor.
+
+Esta repetido
+
+## 8. 
+> Convertir todas las variables que empiezan con bill a mayúsculas.
+
+```{r}
+penguins %>%
+  rename_with(toupper, starts_with("bill"))
+```
+
+## 9. Convertir todas las variables que empiezan con bill a mayúsculas.
+
+ Esta repetido
+ 
+## 10.  
+> Empezando con penguins hacer lo siguiente con un único llamado a la función mutate():
+>
+> * Convertir la variable species a character.
+> * Crear una nueva variable que tenga el peso en Kg.
+> * Convertir la variable island a minúscula.
+
+```{r}
+# Convertir la variable species a character.
+
+penguins %>% mutate(specie_car = toString(species))
+```
+```{r}
+# Crear una nueva variable que tenga el peso en Kg.
+ penguins %>% mutate(peso_kg = body_mass_g /1000)
+```
+
+```{r}
+# Convertir la variable island a minúscula.
+penguins %>% mutate(isla_min = tolower(island))
+```
+
+
+## 11. 
+>Empezando con penguins crear una tabla resumen que contenga para el largo mínimo y máximo de las aletas de los pinguinos chinstrap, agrupados por isla.
+
+```{r}
+penguins %>% 
+  group_by(island) %>%
+  summarise(minimo_aleta = range(flipper_length_mm, na.rm = TRUE)[1], maximo_aleta = range(flipper_length_mm, na.rm = TRUE)[2])
+
+```
+
+
+
+
+## 12. 
+
+> Empezando con penguins, agrupar los datos por especie y año, luego crear una tabla de resumen que contenga el ancho del pico (llamarla bill_depth_mean) y el largo del pico (llamarla bill_length_mean) para cada grupo
+
+```{r}
+penguins %>%
+  group_by(species, year) %>%
+  summarize(
+    bill_depth_mean  = mean(bill_depth_mm, na.rm = TRUE),
+    bill_length_mean = mean(bill_length_mm, na.rm = TRUE)
+  )
+```
+
+## 13.
+
+>Empezando con penguins, hacer una secuencia de operaciones %>% que:
+>
+> * Agregue una nueva columna llamada bill_ratio que sea el cociente entre el largo y el ancho del pico.
+> * Quedarse sólo con las columnas species y bill_ratio.
+> * Agrupar los datos por especie.
+> * Crear una tabla de resumen que contenga el promedio de la variable bill_ratio por especie y que el nombre de la columna en la tabla sea bill_ratio_mean)
+
+
+
+
+```{r}
+penguins %>%
+  mutate(bill_ratio = bill_length_mm / bill_depth_mm) %>%
+  select(species, bill_ratio) %>%
+  group_by(species) %>%
+  summarize(bill_ratio_mean = mean(bill_ratio, na.rm = TRUE))
+```
+
+
+## 14.
+
+> Empezando con penguins, agrupar los datos por isla y después usar across() para encontrar la mediana de los grupos para todas las columnas que contengan el string “mm”. El nombre de las variables tiene que ser el nombre original seguido de un guión bajo y la palabra “median” (o sea, nombredelacolumna_median)
+
+```{r}
+penguins %>%
+  group_by(island) %>%
+  summarize(across(contains("mm"), median, na.rm = TRUE, .names = "{.col}_median"))
+```
+
+## 15.
+
+> Empezando con penguins, quedarse con las observaciones correspondientes a los pinguinos Adelie y luego usar across() para encontrar el valor máximo de todas las variables numéricas para cada isla.
+
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  group_by(island) %>%
+  summarize(across(where(is.numeric), max, na.rm = TRUE))
+```
+
+## 16 
+
+>Empezando con penguins, escribir una secuencia de operaciones %>% que:
+>
+> * Excluya a los pinguinos observados en la isla Biscoe.
+> * Sólo se quede con las variables que están entre species y body_mass_g inclusive.
+> * Renombrar la variable species a especie_pinguino.
+> * Agrupar los datos por la variable especie_pinguino.
+> * Encontrar el valor medio de las variables que contienen el string “length”, separando por la especie del pinguino, y llamando a las columnas como las originales pero agregando "_mean" al final.
+
+
+
+```{r}
+penguins %>%
+  filter(island != "Biscoe") %>%
+  rename(especie_pinguino = species) %>%
+  select(especie_pinguino:body_mass_g) %>%
+  group_by(especie_pinguino) %>%
+  summarize(across(contains("length"), mean, na.rm = TRUE, .names = "{.col}_avg"))
+```
+
+
+## 17
+
+> Empezando con penguins, contar cuántas observaciones hay por especie, isla y año.
+
+```{r}
+penguins %>%
+  select( species, island, year) %>%
+  group_by(year, island, species) %>%
+  summarise(n())
+  
+```
+
+
+## 18 
+
+> Empezando con penguins, quedarse sólo con los pinguinos Adelie y gentoo penguins. Luego contar cuántos hay por cada especie y sexo.
+
+```{r}
+penguins %>% 
+  filter(species != "Chinstrap") %>%
+  select(species, sex) %>%
+  group_by(species, sex) %>%
+  summarise(n())
+```
+
+
+
+## 19
+
+> Agregar una nueva columna a la base de datos llamada campaña que contenga:
+> 
+> “c1” si el año 2007
+> "c2” si el año 2008
+> “c3” si el año 2009
+
+```{r}
+penguins %>% 
+  mutate(Campaña = case_when(
+      year == 2007 ~ "c1",
+      year == 2008 ~ "c2",
+      year == 2009 ~ "c3",
+    )
+  ) %>%
+  group_by(year,Campaña) %>%
+  summarise()
+
+```
+
+## 20 
+
+> Empezando con penguins quedarse sólo con las observaciones correspondientes a pinguinos chinstrap.  Luego, quedarse sólo con las variables flipper_length_mm y body_mass_g. Agregar una nueva columna llamada fm_ratio que contenga el cociente entre el largo de la aleta y el peso del pinguino. Luego agregar otra columna llamada ratio_bin que contenga la palabra “alto” si fm_ratio es mayor o igual que 0.05, “bajo” si el cociente es menor que 0.05 y “no hay registro” en cualquier otro caso (como por ejemplo si el cociente es un NA)
+
+```{r}
+penguins %>%
+  filter(species == "Chinstrap") %>%
+  select("flipper_length_mm" , "body_mass_g") %>%
+  mutate(fm_ratio = flipper_length_mm / body_mass_g) %>%
+  mutate(ratio_bin = case_when(
+    fm_ratio >= 0.05 ~ "alto",
+    fm_ratio < 0.05 ~ "bajo",
+    TRUE ~ "no hay registro"
+  ))
+```
+
+
+
+
+
+
+
+
+
+

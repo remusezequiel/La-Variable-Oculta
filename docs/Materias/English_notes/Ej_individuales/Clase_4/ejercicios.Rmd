@@ -1,0 +1,38 @@
+---
+title: "clase_4"
+author: "Ezequiel Remus"
+date: "13/9/2021"
+output:
+   rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+subtitle: "Idiomas"
+---
+
+# Will, to be going to or present continuous?
+
+1.  My father **is going** to Australia next week.
+2.  What are your plans for the future?. I **am going to start** an IT Course!
+3.  I don't think schools **will change** very much in the next few years.
+4.  Our computer broke down yesterday, so we **are going to buy** a new one
+5.  Look at that man on the bridge! He **is going to jump**!.
+6.  I think that people **will live** on the moon by 2050.
+7.  Peter is not studying hard enough. He **is going to fail** his exams.
+8.  The sun is shining and the sky is so blue. It **is going to be** a nice day.
+9.  The phone is ringing! Ok, don´t worry, **I will answer** it
+10. I hope robots **will do** house work in the future.
+11. I can't come to the cimnema with you. I **am meeting** John at 8:00.
+12. I can´t find my glasses! Don't worry, I **will help** you find them.
+13. My sister and I **are going to travel** to India in July
+14. Those cars are going too fast! They **are going to crash**.
+15. I'm going out. Do you want to come with me? Why not? I **will take** my sweater
+16. Mum, can I go out now? I promise I **will do** my homework later!
+17. This exercise is too difficult for me! Don´t worry, I will help You!
+18. **Are you going out** tonight? Yes, I **am going** to the cinema
+19. It´s Diana's birthday tommorrow!. What **will you buy** her?
+20. My daughter **will be** 15 on May 2nd!
+
+

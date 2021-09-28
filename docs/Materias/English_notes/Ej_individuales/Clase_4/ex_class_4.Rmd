@@ -1,0 +1,127 @@
+---
+title: "exe_clase_4"
+author: "Ezequiel Remus"
+date: "17/9/2021"
+output:
+   rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+subtitle: "Idiomas"
+---
+
+# Activity 1
+
+### 1- How important is it to communicate scientific findings to the public? why?
+
+Its very important to people know about this discoveries and know how this findings 
+could improve their lives. And show us that some changes of habits are necesary
+
+
+### 2- Why can it be difficult to communicate scientific findings effectively?
+
+It's difficult to communicate scientific findings because they are product of long
+and complex researches that require especial languege, which is not familiar to 
+people in general, so it is necessary to resum the main ideas of this 
+discoveries so that people could understand them
+
+
+# Activity 2
+
+Science communication (also called "outreach" or "popularization") generally refers to communicating scientific topics to members of the public who are not experts. This practice has evolved into an independent profession field apart from the different scientific disciplines. 
+
+There are different ways of communicating science such as: exhibitions, journalism and policy or media production. Science communication includes communication between scientists, for example through scientific journals, as well as between scientists and non-scientists, especially during public controversies over science.
+
+Effective science communication may generate support for scientific research. Explaining the methods that guided the research is becoming more important nowadays than simply communicating the findings of a study. This might be especially critical when scientific information has reached the public in the wrong way. Wrong information spreads easily because it is not subject to the rigour of the scientific method. If the public understands your research and you know how to communicate it effectively you could receive money to continue investigating.
+
+Science communicators can use entertainment and persuasion including humour, storytelling and metaphors to communicate more effectively. Scientists can be trained in some of the techniques used by actors to improve their communication.
+
+
+### 1. Summarise the main idea in each paragraph. Share your ideas with your group.
+
+> Paragraph 1
+
+The first paragraph only say that, science communication it's a disipline which try
+to communicate scientific findings to people in general
+
+> Paragraph 2
+
+In this paragraph enumerate some manears that the communicator could use to inform.
+
+> Paragraph 3
+
+This paragraph say that if we communicate a finding in a good way we could
+generate support for scientific research, but if we communicate this in a wrong way
+this can make people misunderstand.
+
+> Paragraph 4
+
+This paragraph say that science communicators can use different ways to forms to 
+tell us any discovery and some of them use techniques used by actors.
+
+
+### 3. Discuss in small groups:
+> a. Which of your ideas in the “before you read” section were the same as those in the text?
+
+ .....
+
+> b. Which scientific controversies do you remember hearing or reading about in the news?
+
+The flat earth. For me is realy disgusting, because some friends believe in this.
+They realy think that the earth is flat and there are goberment members and scientist
+behind this and they are hiding us the truth.
+
+> c. Mention one difficulty you may have in your field of study when you have to communicate your findings.
+
+well, Resume the key information is the most difficult thing. How can i explain what
+is a potential with out math?  How can i explain what energy is?
+
+
+# Activity nº3:
+
+We are going to watch a TED talk that proposes strategies to improve science communication. While you watch, take notes of the different strategies Melissa Marshall proposes. policy 
+ingles español
+[Link: Melissa Marshall talk](https://www.ted.com/talks/melissa_marshall_talk_nerdy_to_me?language=en)
+
+After you watch, answer the following questions in pairs:
+
+### Text of the video:
+
+*Five years ago, I experienced a bit of what it must have been like to be Alice in Wonderland.* *Penn State asked me, a communications teacher, to teach a single communications class for engineering students.* *And i was scared. Really scared. Scared of these students with their big brains and their big books and their big, unfamiliar words.* 
+*But as these conversations unfolded, i experienced what Alice must have when she went down that rabbit hole and saw that door to a whole new world.* *That's just how i felt as i had those conversations with the students.* *I was amazed at the ideas that they had, and i wanted others to experience this wonderland as well.*
+*And i believe the key to opening that door is great communication.*
+
+*We desperately need great communication from our scientists and engineers in order to change the world.* *Our scientist and engineers are the ones that are tackling our grandest challenges, from energy to environment to health care, among others, and if we don't know about it and understand it, the work isn't done, and i believe it's our responsability as non-scientists to have these interactions.*
+
+*But these great conversations can't occur if our scientists and engineers don't invite us in to see their wonderland.* *So scientists and engineers, please, talk nerdy to us.*
+
+*I want to share a few keys on how you can do that to make sure that we can see that your science is saxy and your engenieering is engaging. First question to answer for us: so what? Tell us why your science is relevant to us.* *Don't just tell me that you study trabaculae, but tell me that you study trabaculae, which is the mesh like structure of our bones because it's important to understanding and treating osteoporosis. And when you're describing your science, beware of jargon.* *Jargon is a barrier to our understanding of your ideas.* *Sure, you can say "spatial and temporal," but why not just say space and time, which is so much more accesible to us? And making your ideas accesible is not the same as dumbing it down. Instead, as Einstein said, make everything as simple as possible, but no simpler.*
+
+*You can clearly communicate your science without compromising the ideas. A few thing to consider are having examples, stories and analogies. Those are ways to engage and exite us about your content.* *And when presenting your work, drop the bullet points. Have you ever wondered why they're called bullet points? What do bullets do? Bullets kill, and they will kill your presentation.* *A slide like this is not only boring, but it relies too much on a language area of our brains, and causes us to become overwhelmed. Instead, this example slide by Genevieve Browns is much more effective.* *It's showing that the special structure of trabeculae are so strong that they actually inspired the unique design of the Eiffel Tower.* *And the trick here is to use a single, readeble sentence that the audience can key into if they get a bit lost, and then provide visuals which appeal to our other senses and create a deeper sense of understanding of what being described.* *So I think these are just a few keys that can help the rest of us to open that door and see the wonderland that is science and engenieering. And because the enggineers that I've worked with have taught me to become really in touch with my inner nerd, I wnat to summerize with an equation.*
+
+$$ \frac{Sicence - (Jargon + Bullets)}{Relevance} x Passion =  Understanding$$
+*And so, scientist and engineers, when you've solved this equation, by all means, talk nerdy to me.*
+
+> a) Which of the strategies she proposes are the same ones as in the Wikipedia entry?
+
+The strategies in common are the use of storytelling, methaphores, examples and analogies.
+On one hand, wikipedia recommend exhibitions, Journals, Policy and media production.
+On the other hand, Melissa proposes to use visuals with single sentences instead 
+bullet points in your presentations.
+
+
+> b) From the strategies you wrote in a), choose the most and least useful ones for you.
+
+For me, the most useful strategy are the analogies and the least useful one are the examples.
+The examples sometimes are difficult to explain lead public confuced.
+
+> c) What is the social stereotype of scientists she presents in her talk?
+
+She said that they are  students with  big brains and  big books and  big, unfamiliar words.
+
+
+> d) What do you think of her final equation?
+
+I don't know.

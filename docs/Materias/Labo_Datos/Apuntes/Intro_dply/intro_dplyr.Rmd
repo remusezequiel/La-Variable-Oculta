@@ -1,0 +1,125 @@
+---
+title: "Introduccion a dplyr"
+author: "Ezequiel Remus"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+subtitle: "Laboratorio de Datos"
+---
+
+```{r}
+require(ggplot2)
+require(palmerpenguins)
+require(dplyr)
+```
+
+### Funciones de DPLYR
+
+#### Documentacion Dplyr
+* [Link 1](https://dplyr.tidyverse.org/reference/index.html)
+* [Link 2](https://es.r4ds.hadley.nz/datos-ordenados.html)
+
+```{r}
+penguins
+```
+
+```{r}
+# %>% := pipe . Nos sirve para hacer secuencias de operaciones
+penguins %>% filter(sex=="female")
+```
+
+```{r}
+penguins %>% 
+  filter(sex == "female") %>%
+  filter(island == "Biscoe") %>%
+  arrange(bill_depth_mm)
+```
+
+```{r}
+penguins %>% 
+  filter(sex == "female", island == "Biscoe") %>%
+  arrange(bill_depth_mm)
+```
+
+```{r}
+penguins_subset <- penguins %>% sample_n(12)
+
+penguins_subset
+```
+
+```{r}
+penguins %>% 
+  filter(between(flipper_length_mm, 200, 205))
+```
+
+```{r}
+penguins_subset %>% select(species, flipper_length_mm, sex)
+```
+
+```{r}
+penguins_subset %>% select(where(is.character))
+```
+
+```{r}
+penguins_subset %>% select(!where(is.numeric))
+```
+
+```{r}
+penguins_subset %>% select(ends_with("mm"))
+```
+
+```{r}
+penguins_subset %>%
+  mutate(body_weight_Kg = body_mass_g / 1000)
+```
+
+```{r}
+penguins_subset %>%
+  mutate(body_weight_Kg = body_mass_g / 1000) %>%
+  select(species, body_mass_g, body_weight_Kg)
+```
+
+```{r}
+penguins %>% group_by(species)
+```
+
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  summranarise(peso_promedio_xespecie = mean(body_mass_g, na.rm = TRUE))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

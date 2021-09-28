@@ -1,0 +1,321 @@
+---
+title: "Tp - Tragos"
+author: "Ezequiel Remus"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+subtitle: "Laboratorio de Datos"
+---
+
+-------------------------
+
+# Ejercicio: Tragos
+
+
+1. Elijan 10 tragos al azar (busquen en la documentacion hay un endpoint para traer de 1 trago al azar -el de 10 es pago-) y calculen la cantidad de ingredientes promedio por trago. Recuerden ese número, lo vamos a compartir al final de la clase.
+
+2. Elijan un ingrediente del dataframe de ingredientes y busquen tragos con ese ingredientes: ¿Cuántos son?
+
+3. ¿Cuál es la distribución de tipos de vaso en los tragos que usan Gin?
+
+4. ¿Se parece a la de tragos que usan Champagne?
+
+5. Tomen las instrucciones para hacer el trago de 10 tragos distintos en los distintos idiomas y cuenten la frecuencia de cada letra (Pista: table(strsplit(texto_instrucciones, ’’)))
+
+6. Hagan uno o más graficos de barras ¿Se parecen las distribuciones?
+
+7. ¿Cuál es la letra que mejor distingue el alemán del italiano?
+
+
+-------------------------
+
+# Soluciones
+
+Vamos a analizar la siguiente [API:](https://www.thecocktaildb.com/api.php)
+
+Para eso vamos a necesitar la siguiente libreria, la cual, sirve para trabajar
+con el formato **JSON**.
+
+```{r}
+require(jsonlite)  # lo cargamos
+```
+
+En particular, debemos trabajar con los *endpoints*, los cuales son métodos que 
+pueden recibir *parámetros*.
+
+
+### 1
+
+Primero, creemos el vector `tragos` el cual tendra los datos de $10$ tragos aleatorios
+los cuales se obtienen a partir de la api indicada en el [Link](http://www.thecocktaildb.com/api/json/v1/1/random.php)
+
+```{r}
+
+link_api_rand <- "http://www.thecocktaildb.com/api/json/v1/1/random.php"
+tragos        <- c() # Inicializamos un vector vacio
+
+# Corremos un bucle 10 veces
+for (i in 1:10){
+  
+  cat( "Cargando",i * 10,"% \n" )     # Mensaje en consola 
+  
+  azar   <- fromJSON( link_api_rand ) # tomamos un dato al azar 
+  tragos <- c(tragos, azar)           # Guardamos el dato al azar en el vector de tragos y tambien al vector anterior
+  
+  # Si ya estan todos cargados, se muestra este mensaje
+  if (i == 10) {
+    print("Vector Cargado")
+  }
+}
+```
+
+Guardamos los tragos en un vector
+
+```{r}
+
+# VARIABLES
+
+api_por_id   <- "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
+datos_tragos <- c()
+
+
+for (t in tragos){
+  
+  cat("Cargando trago: ", t$idDrink ,"\n") # Imprimimos primero este mensaje en pantalla
+  
+  datos_trago  <- fromJSON( paste( api_por_id , t$idDrink ) ) # Tomo el dato del trago segun el id
+  datos_tragos <- c( datos_tragos, datos_trago )              # Guardamos los datos en el vector
+  
+  if (length(datos_tragos) == 10) {
+    print( "Listo. \n" )
+  }
+}
+```
+
+Tomamos la cantidad de ingredientes de cada uno y y las guardamos en el vector 
+`cant_ingredientes` 
+
+```{r}
+cant_ingredientes = c()
+
+for (d in datos_tragos){
+
+  print( d$idDrink )
+  cant              <- sum( !is.na(d[1,18:32]) )
+  cant_ingredientes <- c( cant_ingredientes, cant )
+  
+}
+```
+
+Obtenemos el promedio de la cantidad de ingredientes entre estos elementos 
+tomados al azar
+```{r}
+mean(cant_ingredientes)
+```
+
+
+### 2
+
+Ahora, debemos explorar la API de ingredientes. Tengo que elegir un ingrediente
+y ver cuantos tragos con ese ingrediente hay.
+
+Tomemos primero los links que me listan todos los cocktails, ingredientes y 
+demas cosas
+
+```{r}
+# DEFINIMOS UNAS CUANTAS VARIABLES A UTILIZAR
+# List the categories, glasses, ingredients or alcoholic filters
+
+api_lista_categorias   <- "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
+api_lista_vasos        <- "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
+api_lista_ingredientes <- "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+api_lista_alcohol      <- "https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list"
+
+api_lista_cocktails    <- "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"
+```
+
+```{r}
+lista_cocktails <- fromJSON(api_lista_cocktails)
+lista_cocktails
+```
+```{r}
+lista_ingredientes <- fromJSON(api_lista_ingredientes)
+lista_ingredientes
+```
+
+Vamos a tomar el ingrediente `Irish whiskey`. Y vamos a buscar que cocktails
+tienen este ingrediente.
+
+```{r}
+ingrediente <- lista_ingredientes$drinks$strIngredient1[31]
+ingrediente
+```
+
+```{r}
+api_serch_by_ingredient <- "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="
+
+creo_link_busqueda <- paste(api_serch_by_ingredient,ingrediente,sep = "")
+busco <- fromJSON( creo_link_busqueda )
+
+busco
+```
+
+
+```{r}
+length(busco$drinks$strDrink)
+```
+
+Son $5$ tragos nadamas los que utilizan *Irish Wiskey*
+
+
+### 3
+
+Para resolver este punto, primero tomamos los cocktails que contienen `Gin`.
+
+```{r}
+link_buscar_gin    <- paste( api_serch_by_ingredient,"Gin", sep="" )
+cocktails_with_gin <- fromJSON( link_buscar_gin ) 
+cocktails_with_gin
+```
+En la variable `cocktail_with_gin` guardamos los *nombres* y el *id* de cada cocktail que contiene Gin. 
+
+Ahora, quiero ver en que vaso se sirve cada uno y hacer un analisis de esto.
+
+Debemos tomar a partir de los nombres los datos de cada cocktail a partir de la 
+Api correspondiente.
+
+```{r}
+api_cocktail_by_name   <- "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
+glass_cocktails_with_gin  <- c()
+
+for(i in 1:length(cocktails_with_gin$drinks$strDrink)){
+
+  print(i)
+  
+  if (i != 19 & i != 35){
+    
+    cocktail_name <- cocktails_with_gin$drinks$strDrink[i]
+    link          <- paste( api_cocktail_by_name, cocktail_name,sep="" )
+    cocktail      <- fromJSON(link)
+    glass_cocktails_with_gin[i] <- cocktail$drinks$strGlass   
+    
+  }
+}
+
+glass_cocktails_with_gin
+```
+
+
+```{r}
+glass_cocktails_with_gin <- glass_cocktails_with_gin[!is.na(glass_cocktails_with_gin)==TRUE]
+
+table(glass_cocktails_with_gin)
+
+```
+
+
+### 4
+
+Ahora, tengo que hacer lo mismo con los datos de `Champagne`
+
+```{r}
+link_buscar_gin          <- paste( api_serch_by_ingredient,"Champagne", sep="" )
+cocktails_with_champagne <- fromJSON( link_buscar_gin ) 
+glass_cocktails_with_champagne  <- c()
+
+for(i in 1:length(cocktails_with_champagne$drinks$strDrink)){
+
+  print(i)
+    
+  cocktail_name <- cocktails_with_champagne$drinks$strDrink[i]
+  link          <- paste( api_cocktail_by_name, cocktail_name,sep="" )
+  cocktail      <- fromJSON( link )
+  
+  glass_cocktails_with_champagne[i] <- cocktail$drinks$strGlass   
+}
+
+print("---------------------")
+print(" Tabla champusito ")
+print("---------------------")
+table(glass_cocktails_with_champagne)
+```
+
+
+Nada que ver la tabla de los vasos que se usan para tomar tragos con champagne
+respeccto de los tragos que tienen Gin. Además, no son comparables, el conjunto
+de los tragos que tienen Champagne son muchisimo más pequeño.
+
+### 5 
+
+La idea aca es, tomar $10$ tragos random, tomar las instrucciones de cada uno
+en cada idioma. Despues, contar la frecuencia de cada letra.
+
+Empecemos por el principio, que es agarrar los $10$ tragos rando.
+
+```{r}
+tragos_azar <- c() 
+inst_ing    <- c()
+inst_es     <- c()
+inst_de     <- c()
+inst_fr     <- c()
+inst_it     <- c()
+inst_ZhHans <- c()
+inst_ZhHant <- c()
+
+for (i in 1:10){
+  
+  cat( "Cargando",i * 10,"% \n" )      
+  
+  azar        <- fromJSON( link_api_rand )  
+  tragos_azar <- c( tragos_azar, azar )    
+  
+  if (i == 10) {
+    print("Vector Cargado")
+  }
+}
+
+
+for (t in tragos_azar){
+  
+  cat("Cargando trago: ", t$idDrink ,"\n") 
+  
+  datos_trago <- fromJSON( paste( api_por_id , t$idDrink ) ) 
+  inst_ing    <- c(    inst_ing, datos_trago$drinks$strInstructions )              
+  inst_es     <- c(     inst_es, datos_trago$drinks$strInstructionsES)
+  inst_de     <- c(     inst_de, datos_trago$drinks$strInstructionsDE)
+  inst_fr     <- c(     inst_fr, datos_trago$drinks$strInstructionsFR)
+  inst_it     <- c(     inst_it, datos_trago$drinks$strInstructionsIT)
+  inst_ZhHans <- c( inst_ZhHans, datos_trago$drinks$`strInstructionsZH-HANS`)
+  inst_ZhHant <- c( inst_ZhHant, datos_trago$drinks$`strInstructionsZH-HANT`)
+  
+  
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

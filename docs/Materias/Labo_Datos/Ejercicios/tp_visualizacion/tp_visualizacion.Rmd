@@ -1,0 +1,316 @@
+---
+title: "TP-Visualización"
+author: "Ezequiel Remus"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+subtitle: "Laboratorio de Datos"
+---
+
+# EJERCICIOS
+
+### Ejercicio 1
+
+A partir del siguiente gráfico, investigar cómo se usa y qué hace el geom_rug. 
+Agreguen una capa de geom_rug al plot existente pero que no use el mapeo de 
+species en color.
+
+¿Qué hace theme_minimal()? ¿Hay otros themes que se pueden usar?
+
+```{r}
+require(ggplot2)
+require(palmerpenguins)
+
+ggplot(data = penguins, aes(x = bill_depth_mm, 
+                            y = bill_length_mm,
+                            fill = species) ) +
+  geom_point(aes(color=species)) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_depth_mm, 
+                            y = bill_length_mm,
+                            color = species) ) +
+  geom_point() 
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_depth_mm, 
+                            y = bill_length_mm,
+                            color = species) ) +
+  geom_point() +
+  geom_rug() +
+  theme_minimal()
+
+```
+
+
+
+### Ejercicio 2
+
+¿Los pinguinos que tienen picos más anchos tienen picos más cortos o más largos?
+
+```{r}
+penguins
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = bill_depth_mm, 
+                            y = bill_length_mm,
+                            fill=species) ) +
+  geom_point(aes(color = body_mass_g)) +
+  geom_smooth(method = lm) +
+  geom_rug()+
+  theme_minimal()
+```
+
+
+### Ejercicio 3
+
+Hacer un violin plot con geom_violin y sumen una capa de geom_boxplot y 
+geom_point o geom_jitter
+
+```{r}
+library(purrr)
+library(ggplot2)
+library(tibble)
+library(latex2exp)
+
+ggplot(data = penguins, aes(x = bill_depth_mm, 
+                            y = bill_length_mm,
+                            fill=species) ) +
+  
+  geom_violin( width=0.4, alpha=.4 ) + 
+  geom_boxplot( color="black", alpha=.4 ) +
+  geom_jitter( aes(color=species) ) +
+  
+  ggtitle(TeX(r'(Barplot dentro de violin donde la variable es $x =$ bill depth mm)')) +
+  theme_minimal()
+
+```
+
+Notar que no queda ni centrado, ni distinguible. 
+
+En este caso, sera mejor hacer el grafico utilizando en las absizas a las especies.
+
+```{r}
+ggplot(data = penguins, aes(x = species, 
+                            y = bill_length_mm,
+                            fill=species) ) +
+  
+  geom_violin(  alpha=.4 ) + 
+  geom_boxplot( color="black", alpha=.4 ) +
+  geom_jitter( aes(color=species) ) +
+  
+  ggtitle(TeX(r'(Barplot dentro de violin donde la variable es $x =$ species)')) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm,
+                            y = species, 
+                            fill=species) ) +
+  
+  geom_violin(  alpha=.4 ) + 
+  geom_boxplot( color="black", alpha=.4 ) +
+  geom_jitter( aes(color=species) ) +
+  
+  ggtitle(TeX(r'(Barplot dentro de violin donde la variable es $x =$ species)')) +
+  theme_minimal()
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = bill_depth_mm, 
+                            y = species,
+                            fill=species) ) +
+  
+  geom_violin( alpha=.4 ) + 
+  geom_boxplot( color="black", alpha=.4 ) +
+  geom_jitter( aes(color=species) ) +
+  
+  ggtitle(TeX(r'(Barplot dentro de violin donde la variable es $x =$ bill depth mm)')) +
+  theme_minimal()
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = species, 
+                            y = bill_depth_mm,
+                            fill=species) ) +
+  
+  geom_violin(  alpha=.4 ) + 
+  geom_boxplot( color="black", alpha=.4 ) +
+  geom_jitter( aes(color=species) ) +
+  
+  ggtitle(TeX(r'(Barplot dentro de violin donde la variable es $x =$ bill depth mm)')) +
+  theme_minimal()
+```
+
+
+
+### Ejercicio 4
+
+Repetir alguno de los gráficos que hicieron con los datos de Properati pero esta 
+vez con ggplot.
+
+Bueno... abramos properati otra vez entonces
+
+
+```{r}
+properati <- read.csv("ar_properties.csv")
+
+head(properati)
+```
+
+¿Cuales eran los ejercicios de properati?
+
+1. ¿Es el precio por metro cuadrado igual en toda el dataset? ¿Cómo varía? Cree precio por metro cuadrado (precio por m2). Caracterice esta variable usando las herramientas de estadística descriptiva vistas.
+
+Recordanto que el precio por metro cuadrado se calcula $\frac{precio}{sup.Total}$. 
+Tenemos que crear un nuevo dataframe con los datos sin los `NA` y todas esas cosas.
+
+
+```{r}
+source('prope_help.R')
+```
+
+
+```{r}
+ggplot(data=new_df, 
+       aes(x = surface_total , y = price, fill=preciom2)) + 
+  
+  geom_point(aes(color=preciom2)) + 
+  theme_minimal()
+```
+
+
+```{r}
+ggplot(data=new_df, 
+       aes(
+         y = surface_total, 
+         x = preciom2,  fill=property_type)) + 
+  geom_point(mapping = aes(color=property_type)) +
+  theme_light()
+```
+Tomemos filtros adecuados.
+
+
+```{r}
+df_filtrado <- new_df[ new_df$preciom2 < 5000 & 
+                       new_df$surface_total < 2000, 
+                       c(1,2,3,4,5,6,7)]
+
+```
+
+Ahora, teniendo en cuenta estos filtros realizados. Grafiquemos otra vez 
+
+```{r}
+ggplot( data=df_filtrado, 
+        aes(
+          y = surface_total, 
+          x = preciom2,  fill=property_type)) +
+  
+  geom_point(mapping = aes(color=property_type), size=4,shape=".") +
+  geom_smooth(method="lm", color="red") +
+  
+  theme_light()
+```
+
+```{r}
+ggplot( data=df_filtrado, 
+        aes(
+          y = surface_total, 
+          x = preciom2,  color=property_type)) +
+  
+  geom_violin(alpha = .4) + 
+  geom_jitter() +
+  
+  theme_light()
+```
+
+
+```{r}
+ggplot( data=df_filtrado, 
+        aes(
+          y = property_type, 
+          x = surface_total,  fill=preciom2)) +
+  
+  geom_point(mapping = aes(color=preciom2)) +
+  theme_light()
+```
+
+Esto pareciera que, el metro cuadrado se cobra mas caro, cuando las superficies abarcadas son menores.
+
+
+Tomemos un filtro de superficies menores o iguales a 10000 m2
+
+```{r}
+df_filtrado_dos <- new_df[ new_df$preciom2 < 5000 & 
+                       new_df$surface_total < 10000, 
+                       c(1,2,3,4,5,6,7)]
+
+```
+
+```{r}
+ggplot( data=df_filtrado_dos, 
+        aes(
+          y = property_type, 
+          x = surface_total,  fill=preciom2)) +
+  
+  geom_point(mapping = aes(color=preciom2), size=50,shape="*") +
+  theme_light()
+```
+
+
+```{r}
+df_filtrado_tres <- new_df[ new_df$preciom2 < 5000 & 
+                       new_df$surface_total <250, 
+                       c(1,2,3,4,5,6,7)]
+
+
+deptos <- df_filtrado_tres$property_type =="Departamento"
+
+df_depto <- df_filtrado_tres[
+                            deptos==TRUE, 
+                            c(1,2,3,4,5,6,7)]
+```
+
+```{r}
+
+ggplot( data=df_depto, 
+        aes(
+          x = preciom2, 
+          y = surface_total,  fill=surface_total)) +
+  
+    geom_point(mapping = aes(color=surface_total),size=2,shape=".") +
+  geom_smooth(method="lm", color="red") +  
+
+  theme_light()
+```
+
+
+2. ¿Cuales propiedades son caras, promedio o baratas? Construya una partición que separe el precio por metro cuadrado en tres categorías.
+
+3. ¿Cómo cambia el precio por cantidad de habitaciones (rooms) en el dataset? ¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios?
+
+4. ¿Qué considera que describe mejor el precio de una propiedad, su número de habitaciones (rooms) o su superficie cubierta?
+
+5. ¿Cómo cambia la superficie cubierta por número de habitaciones (rooms) en el dataset?¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios? Caracterice metro cuadrado por habitación. Caracterice esta variable usando las herramientas de estadística descriptiva vistas.
+
+6. ¿Cuál es la relación entre la superficie total y la superficie cubierta, al considerar distintos tipos de propiedades?
+
+7. ¿Cómo se relaciona la cantidad de habitaciones (rooms) con la cantidad de baños (bathrooms)?¿Cómo cambia según el tipo de propiedad?¿Y según el barrio?
+
+8. ¿Cuánto tiempo duran los anuncios en departamentos en CABA? ¿Nota algo extraño? Para calcular la cantidad de días entre dos fechas, puede restarlas si están en formato Date.
+
+9. ¿Cómo cambia la cantidad de anuncios publicados en los distintos días de la semana? La función weekdays permite identificar a qué día corresponde el anuncio publicado.
+
