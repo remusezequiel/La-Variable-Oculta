@@ -1,0 +1,281 @@
+---
+title: "Exercice class 6"
+author: "Ezequiel Remus"
+date: "1/10/2021"
+output:
+   rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+subtiatle: "Idiomas"
+---
+
+# ¿Como leer esto? 
+
+En numeros esta indicada la generalizacion de la situacion, despues cada punto
+divide el caso especifico.
+Despues, cada punto tiene reflejado mas o menos que opinaba cada uno de nosotros
+esto es, entre parentesis al lado del nombre de cada uno (utilice los nombres como
+estan escritos en whatsapp) esta la orientacion a la que mas se acercaba la opinion de cada uno.
+
+Si alguno cree que la opinion es distinta digamelo por whatsapp, asi la cambio y
+concordamos todos. Además, donde dice **I DON´T REMEMBER WHAT YOU SAY** es porque
+o no los escuche, o no llegue a poner el parentesis con la opinion y me quedo sin
+poner landa. Acá podemos hacer dos cosas, me pueden volver a decir cual era su opinion, 
+o directamente hacemos un promedio segun las opiniones y ya esta, ya que no se cuanta
+importancia le va a dar la profe a que las respuestas en el foro coincidan entre cada 
+participante del grupo.
+ 
+Por otro lado, en mayusculas voy a dejar un resumen, mas o menos, como para tener una 
+guia para escribir las concluciones en el foro.   
+ 
+# 7 Speaking
+
+Good Manner (*GM*), Bad Manner (*BM*), Not Important (*NI*)
+
+## 1.
+
+* When greeting people use more formal language when speaking to an older person. 
+
+I THINK IT'S A GOOD MANNER, BECAUSE, ASSUMING THIS PERSON IT'S NOT RELATED WITH MY,
+I SHOULD TO BE FORMAL AND THATS BECAUSE I DON'T KNOW HIM/HER WELL.
+
+> MY  : (*GM*)
+
+> MAI : (*GM*)
+
+> SEB : (*GM*) (*NI*) DEPEND OF THE CONTEXT
+
+> ISMAEL : (*GM*) (*NI*) DEPEND OF THE CONTEXT
+
+> GABY : (*GM*) (*NI*) DEPEND OF THE CONTEXT
+
+
+* When greeting people kiss somebody on both cheeks when you meet them for the first time. 
+
+DEPENDS OF THE COUNTRY/CULTURE YOU ARE LIVING. BUT I THINK, IN GENERAL, FOR ALOT OF PEOPLE
+IT'S AWKWARD. THEN, FOR SOME PEOPLE IS A GOOD MANNER AND FOR OTHER CAN BE A BAD MANNER,
+FINALY IT´S NOT AN IMPORTANT THING
+
+> MY  : (*NI*)
+
+> MAI : (*NI*)
+
+> SEB : (*NI*)
+
+> ISMAEL : (*NI*) 
+
+> GABY : (*NI*)
+
+* When greeting people use your partner's parent's first name. (*NI*)
+
+I DON'T REMEMBER REALY WELL ALL THE OPINIONS, BUT EN GENERAL WE AGREED THAT 
+IT'S NOT IMPORTANT IT CAN BE IN A FORMAR OR AN INFORMAL WAY AND IT DEPENDS OF THE 
+RELATIONSHIP YOU HAVE WITH THIS PEOPLE.
+
+> MY  : (*NI*)
+
+> MAI : (*NI*)
+
+> SEB : (*NI*)
+
+> ISMAEL : (*NI*)
+
+> GABY : (*NI*)
+
+## 2. 
+
+IN ALL OF THIS SITUATIONS, I THINK IT'S DEPENDS OF THE PEOPLE INVOLVED.
+IT'S A GOOD MANNER SOCIALY, BUT SOME WOMANS DOESN'T THINK IS A GOOD MANNER
+AND SOMETIMES THEY PREFER TO BE TRATED LIKE ANY PEOPLE
+
+* Men and women - a man should pay for the meal on firsT date. 
+
+> MY : (*GM*) BUT (*NI*)
+
+> MAI : (*GM*) BUT (*NI*)
+
+> SEB : (*GM*) 
+
+> ISMAEL : (*NI*)
+
+> GABY : (*NI*)
+
+
+* Men and women - a man should hold the door open for a woman, or wait for her to
+go through the door first. 
+
+> MY : (*GM*) BUT (*NI*)
+> MAI : (*GM*)
+> SEB : (*GM*)
+> ISMAEL : **I DON´T REMEMBER WHAT YOU SAY**
+> GABY : (*GM*) FOR ALL KIND OF PEOPLE
+
+* Men and women - a man should accompany a woman home. (*GM*) BUT (*NI*)
+
+> MY : (*GM*) BUT (*NI*)
+
+> MAI : DEPENDS OF THE PERSON
+
+> SEB : (*GM*)
+
+> ISMAEL : DEPENDS OF THE PERSON
+
+> GABY : DEPENDS OF THE PERSON
+
+## 3.
+
+* When you're invited to somebody's house for a meal take a present. (*NI*)
+
+> MY : (*GM*)
+
+> MAI : (*GM*)
+
+> SEB : (*GM*)
+
+> ISMAEL : (*GM*)
+
+> GABY : (*GM*)
+
+* When you're invited to somebody's house for a meal take your shoes off when you arrive.(*BM*)
+
+> MY  : (*BM*)
+
+> MAI : (*BM*)
+
+> SEB : (*GM*)
+
+> ISMAEL : **I DON´T REMEMBER WHAT YOU SAY** 
+
+> GABY: **I DON´T REMEMBER WHAT YOU SAY**
+
+* When you're invited to somebody's house for a meal criticize the food. 
+
+> MY  : (*BM*)
+
+> MAI : (*BM*)
+
+> SEB : (*BM*)
+
+> ISMAEL : (*BM*)
+
+> GABY : (*BM*)
+
+
+* When you're invited to somebody's house for a meal send a message the next day to say thank you 
+
+> MY  : (*NI*)
+
+> MAI : (*NI*)
+
+> SEB : (*NI*) BUT (*GM*)
+
+> ISMAEL : (*NI*)
+
+> GABY : (*NI*)
+
+
+## 4.
+
+* When you're having a meal with friends in a restaurant complain that the food
+isn't very good. 
+
+> MY : (*NI*)
+
+> MAI : (*GM*) SOME TIMES
+
+> SEB : (*GM*)
+
+> ISMAEL : **I DON´T REMEMBER WHAT YOU SAY**
+
+> GABY : **I DON´T REMEMBER WHAT YOU SAY**
+
+I THINK IT'S A WAY TO START COMVERSATION. IF YOU THINK THE FOOD ISN'T GOOD YOU CAN 
+SAY IT, BECAUSE, YOU ARE WITH FRIENDS, NOT YOUR BOSS OR OTHER PEOPLE 
+
+* When you're having a meal with friends in a restaurant insist on only paying for 
+exactly what you ate or drank when the bill is being divided up. (*BM*) BUT (*NI*)
+
+I THINK IT'S DEPENDS OF WHAT YOU WAS CONSUMING. IF WHAT YOU ATE AND DRUNK HAS A BIG 
+DIFERENCE OF PRICE IT'S OK THAT YOU INSIST, BUT IF ALL CONSUME IN THE SAME WAY IT'S A BAD MANEER.
+FINILY, HOW IT DEPENDS OF THE SITUATION I THINK THAT IS NOT IMPORTANT.
+
+> MY : (*NI*)
+
+> MAI : (*GM*)
+
+> SEB : (*GM*)
+
+> ISMAEL : (*GM*)
+
+> GABY : **I DON´T REMEMBER WHAT YOU SAY**
+
+* When you're having a meal with friends in a restaurant be very affectionate 
+with your partner. 
+
+IT'S REALY AKWARD.
+
+> MY : (*BM*)
+
+> MAI : (*BM*)
+
+> SEB : (*BM*)
+
+> ISMAEL : (*BM*)
+
+> GABY : (*BM*)
+
+## 5.
+
+* On social networking sites post a photo or video clip of a friend without 
+asking their permission.  
+
+I THINK YOU SHOULD TO ASK FIRST. BECAUSE, YOU DON'T KNOW IF DO THIS COULD AFECT
+YOUR FRIED FEELINGS OR NOT. (Esto no se si lo escribi correctamente, creo que se entiende lo que quice decir)
+
+> MY : (*BM*)
+
+> MAI : (*BM*)
+
+> SEB : (*NI*)
+
+> ISMAEL : (*NI*)
+
+> GABY : (*NI*)  
+
+* On social networking sites make a negative comment about somebody's photo. 
+
+I THINK IT'S ALWAYS A BAD MANNER SAY NEGATIVE THINGS TO OTHER PEOPLE. 
+YOU CAN HURT THEIR FEELINGS. BUT, IF THIS PHOTO IS A BAD THING 
+
+> MY : (*BM*)
+
+> MAI : (*BM*)
+
+> SEB : (*BM*)
+
+> ISMAEL : (*BM*)
+
+> GABY : (*BM*)
+
+* On social networking sites post a private message or conversation. (*NI*)
+
+FOR ME IT'S NOT IMPORTANT. BECAUSE, IT'S DEPENDS OF THE SITUATION INVOLVED.
+I THINK THAT IT'S NOT ALWAYS A BAD MANNER.
+IF IT'S A GOOD SHOKE THAT YOU WANT TO SHARE AND IT'S NOT OFFENSIVE WITH ANY BODY. 
+THEN, I DON'T KNOW IT'S GOOD TO GENERALIZE THIS 
+KIND OF SITUATION AND THAT IS WHY I THINK IT'S NOT IMPORTANT.
+
+> MY     : (*NI*)
+
+> MAI    : (*BM*)
+
+> SEB    : (*BM*)
+
+> ISMAEL : (*BM*)
+
+> GABY   : (*BM*)
+
+
