@@ -1,0 +1,203 @@
+---
+title: "Exercises - Class n° 7"
+author: "Ezequiel Remus"
+date: "10/10/2021"
+output:
+   rmdformats::downcute:
+    downcute_theme: "chaos"
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+subtitle: "Idiomas"
+---
+
+# Hola!
+
+Bueno, se supone que el ejercicio que deberiamos subir es el *(c)* de este apunte.
+ 
+A lo otro si quieren lo leen, sino no, son como "mis respuestas al video". Son como las ideas
+para tener algo de donde agarrarme cuando nos jutamos a hablar.
+
+
+# a- What can you say about what the two girls are doing?
+
+They are watching a video on a social media. 
+May be they are looking for somebody, but they might not want to add this person in their 
+accounts.
+
+
+# b- Do you agree with the statement: "It's not stalking, cuz the information is technically public"? Why (not)?
+
+I have two points for this statement.
+
+In first place, we could take the wrong way when we are searching somebody or something in social media.
+
+For Example, when people feel bored, sometimes they upload a lot of information of what they are doing to social networks. but, in my opinion, ....this could let them expose and could be bad for their selfteem because not everything we watch or do in social media is real.
+
+From start searching information of someone we are interested in to end up stalking that person there is a long way. I think that, at first, we can be exited with the idea of meeting someone new, but then that feeling can turn into other negative feelings such as anxiety and obsession. What is worst is that some people can´t realise that searching for every detail of someones life available on the internet is not only harmful for their health, but also for the other person, who might not be interested and can feels anooyed or even pursued.
+
+
+That is when following someone become in to stalk.
+
+They start search alot of information and may be starts to make a lot of comments to this people in all of their publications and it's begin to be annoying to the person who is stalked but this is only in the case that the two persons aren't intrested with the same intentions. 
+
+Here is the misunderstunding between them and then the follow  becomes in stalk.
+
+By other hand, the company use alot of this things in his favor. They abstract what they are cousing to their users, becouse for them this situations are money in their pockets. 
+
+Stalking somebody is an act of the human obsession then we are deciding to make public our information. What social media does is intencify the obsession of the people in something or somebody because we have eassy access to alot of information, and this intencifies our obsession in people or anythings. 
+
+Then, in my humble opinion, the social media it's a big tool but this is used in a worng way and it's because 
+companies take advantage of people's feelings to make money.
+
+
+# c- Write down interesting words and expressions from the song and look them up in a dictionary and try to use them in examples in sentences. Share some of them here in the forum.
+
+## [Video sentence : ... You know you wanna dig for me relentlessly]
+
+(at 0:23) 
+
+### Dig 
+
+1. to break up and move soil using a tool, a machine, or your hands (cavar)
+2. to form a hole by moving soil (excavar)
+3. to search somewhere when you are looking for an object or information (es como un buscar a fondo)
+
+**La que tiene sentido para el video es la n° 3**
+
+> Ex:  He is *digging* into his pocket, may be he lost his money.
+
+## Relentless
+
+1. continuing in a severe or extreme way
+2. continuing in a determined way without any interruption
+
+(sin parar, sin cansarse, de manera incesante)
+
+**cualquiera de los dos significados sirve**
+
+> Ex: He is working all day *relentlessly*
+
+
+## [Video sentence : ... then request access to my private instagram ...]
+
+(at 0:54)
+
+### Request
+
+1. the act of politely or officially asking for something
+2. to ask for something politely or officially
+3. an act of asking for something, or the thing asked for
+4. to ask for something
+5. a question in which you ask for something
+
+> Ex: The boss refused our *request* to leave work early
+
+
+
+## [Video sentence: ... in the meantime scour my work instagram account ...]
+
+(at 1:00)
+
+### Scour
+
+1. (to CLEAN) (Limpiar en el sentido de barrer o sacar algo)
+
+.. to remove dirt from something by rubbing it hard with something rough.
+   
+.. to clean something by rubbing it hard with rough cleaning material.  
+
+2. (to SEARCH) (recorrer / repasar con el fin de buscar)
+
+.. to search a place or thing very carefully in order to try to find something.
+
+.. to search a place or thing very carefully.
+
+*En este caso, creo que es de buscar. La oracion es algo asi como "recorre mi cuenta de trabajo"*
+
+> Ex: We should to scour  the beach to pick up some trash.
+
+## [Video sentence : You know you wanna hunt for me tirelessly]
+
+(at 1:15)
+
+### Hunt
+
+1. verb (CHASE)
+
+.. to chase and try to catch and kill an animal or bird for food, sport, or profit.
+
+2. verb (SEARCH)
+
+.. to try to find something or someone
+
+> Ex: They are still hunting for the missing child.
+
+### Tireless
+
+1. adjetive
+
+.. working energetically and continuously ("sin descanso")
+
+> Ex : They are tireless students
+
+
+## [Video sentence : ... based on the hesitation in our smiles ...]
+
+(at 1:32)
+
+## Hesitate
+
+1. verb
+ 
+.. to pause before you do or say something, often because you are uncertain or nervous about it
+
+(El acto de dudar - the act of doubt)
+
+> Ex : If you need anything, don’t hesitate to call me.
+
+## [Video sentence: ... pay only $9.99 on a background check website to know for sure!...]
+
+(at 1:55)
+
+### Background check website
+
+1. Background (noun) : used to refer to something that is done before, and in preparation for, something else
+
+- (Picture) : the things that can be seen behind the main things or people in a picture
+- (Sound) : sounds that can be heard behind other sounds that are louder
+- (Situation) : the conditions that existed before a particular event happened, and that help to explain why it happened
+- (FAMILY EXPERIENCE) : your family and your experience of education, living conditions, money, etc
+
+**Background es usada en este caso como "antecedente", pero tambien puede ser: "entorno","experiencia"... hay un monton de traducciones posibles. El tema aca es que esta usado para referirse a antecedentes familiares ya que el video viene planteando esa idea.**
+
+> Ex : Students must do some background reading before the course starts.
+
+2. check (verb) :
+
+- (EXAMINE) : to make certain that something or someone is correct, safe, or suitable by examining it, him, or her quickly
+- (STOP) : to stop someone from doing or saying something, or to prevent something from increasing or continuing
+- (LEAVE) : to give your bags to airport employees to be put on a plane for you, rather than carrying them on and off the plane yourself
+
+**En este caso esta usada como "chequeo" o "revision"**
+
+> I called them yesterday to check when they were arriving
+
+3. website (noun) : a set of pages of information on the internet about a particular subject, published by a single person or organization
+
+- *Conclution*: 
+
+*Background check (Algo asi como "ver antecedentes"): a check of what a person has done in the past, usually as part of the process of deciding whether or not to employ them.*
+
+Then, *Background check website* It's refers to a website that allow that information.
+
+
+## Lieu
+
+.. Instead of
+
+(En lugar de) ... Instead of ... (parece ser un choreo del frances)
+
+> Ex : In the supermarket They gave me some candies in lieu of coins.
